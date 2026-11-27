@@ -63,7 +63,7 @@
       "issuer": "숲속 야영지 약초꾼 미라",
       "items": [
         "wood_shield",
-        "stone"
+        "stone_spear"
       ],
       "reason": "덩어리 한가운데 왕관 쓴 놈이 있다. 그놈을 없애야 번식이 멈춘다.",
       "region": 3,
@@ -97,7 +97,7 @@
       "gold": 600,
       "issuer": "숲속 야영지 촌장 그라스",
       "items": [
-        "stone_axe",
+        "bone_scythe",
         "bone_staff",
         "charm"
       ],
@@ -109,7 +109,7 @@
       "gold": 320,
       "issuer": "잿불 숲 나무꾼 마을",
       "items": [
-        "bone_staff",
+        "stone_maul",
         "wood_shield"
       ],
       "reason": "족장이 쓰러지면 오크들은 흩어진다. 마을이 겨울 땔감을 걸었다.",
@@ -1554,12 +1554,13 @@
       "range": 30.0
     },
     {
-      "cd": 0.9,
+      "cd": 0.8,
       "era": 0,
       "family": "sword",
-      "id": "stone_axe",
-      "motion": "chop",
-      "name": "돌도끼",
+      "from": 1,
+      "id": "stone_sword",
+      "motion": "slash",
+      "name": "돌검",
       "outfit": {
         "colors": {
           "a": "9a7650",
@@ -1574,37 +1575,14 @@
         "head": "warpaint",
         "torso": "bare_strap"
       },
-      "power": 14.0,
-      "range": 55.0
-    },
-    {
-      "cd": 1.0,
-      "era": 0,
-      "family": "sword",
-      "id": "stone_spear",
-      "motion": "thrust",
-      "name": "돌창",
-      "outfit": {
-        "colors": {
-          "a": "9a7650",
-          "b": "6e5236",
-          "c": "4a3020",
-          "f": "skin_dark",
-          "k": "4a3020",
-          "l": "skin",
-          "p": "c03a2a",
-          "w": "9a7650"
-        },
-        "head": "warpaint",
-        "torso": "bare_strap"
-      },
-      "power": 13.0,
-      "range": 62.0
+      "power": 11.0,
+      "range": 52.0
     },
     {
       "cd": 0.6,
       "era": 0,
       "family": "sword",
+      "from": 2,
       "id": "wood_club",
       "motion": "bonk",
       "name": "나무 몽둥이",
@@ -1626,9 +1604,35 @@
       "range": 50.0
     },
     {
+      "cd": 1.0,
+      "era": 0,
+      "family": "sword",
+      "from": 3,
+      "id": "stone_spear",
+      "motion": "thrust",
+      "name": "돌창",
+      "outfit": {
+        "colors": {
+          "a": "9a7650",
+          "b": "6e5236",
+          "c": "4a3020",
+          "f": "skin_dark",
+          "k": "4a3020",
+          "l": "skin",
+          "p": "c03a2a",
+          "w": "9a7650"
+        },
+        "head": "warpaint",
+        "torso": "bare_strap"
+      },
+      "power": 13.0,
+      "range": 62.0
+    },
+    {
       "cd": 0.42,
       "era": 0,
       "family": "sword",
+      "from": 4,
       "id": "obsidian_knife",
       "motion": "stab",
       "name": "흑요석 단검",
@@ -1650,13 +1654,13 @@
       "range": 46.0
     },
     {
-      "aoe": 18.0,
-      "cd": 1.6,
+      "cd": 0.9,
       "era": 0,
       "family": "sword",
-      "id": "stone_maul",
-      "motion": "smash",
-      "name": "돌망치",
+      "from": 5,
+      "id": "stone_axe",
+      "motion": "chop",
+      "name": "돌도끼",
       "outfit": {
         "colors": {
           "a": "9a7650",
@@ -1671,14 +1675,15 @@
         "head": "warpaint",
         "torso": "bare_strap"
       },
-      "power": 24.0,
-      "range": 56.0
+      "power": 14.0,
+      "range": 55.0
     },
     {
       "aoe": 14.0,
       "cd": 1.1,
       "era": 0,
       "family": "sword",
+      "from": 7,
       "id": "bone_scythe",
       "motion": "sweep",
       "name": "뼈 낫",
@@ -1698,6 +1703,32 @@
       },
       "power": 15.0,
       "range": 64.0
+    },
+    {
+      "aoe": 18.0,
+      "cd": 1.6,
+      "era": 0,
+      "family": "sword",
+      "from": 8,
+      "id": "stone_maul",
+      "motion": "smash",
+      "name": "돌망치",
+      "outfit": {
+        "colors": {
+          "a": "9a7650",
+          "b": "6e5236",
+          "c": "4a3020",
+          "f": "skin_dark",
+          "k": "4a3020",
+          "l": "skin",
+          "p": "c03a2a",
+          "w": "9a7650"
+        },
+        "head": "warpaint",
+        "torso": "bare_strap"
+      },
+      "power": 24.0,
+      "range": 56.0
     },
     {
       "cd": 0.9,
