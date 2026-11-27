@@ -421,6 +421,15 @@
       ]
     }
   },
+  "market": {
+    "base": 100,
+    "max_lv": 6,
+    "max_mercs": 4,
+    "per_lv": 20,
+    "rare": 1.5,
+    "reroll": 30,
+    "size": 3
+  },
   "monsters": [
     {
       "atk": 0.6,
@@ -1314,7 +1323,8 @@
       "gold": 200,
       "potions": 1,
       "recruit": 1,
-      "text": "새 용병 합류"
+      "text": "용병시장 열림",
+      "unlock": "market"
     },
     "2": {
       "chest": 1,

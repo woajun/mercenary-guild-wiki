@@ -649,6 +649,15 @@ const DATA = {
       ]
     }
   },
+  "market": {
+    "base": 100,
+    "max_lv": 6,
+    "max_mercs": 4,
+    "per_lv": 20,
+    "rare": 1.5,
+    "reroll": 30,
+    "size": 3
+  },
   "monsters": [
     {
       "atk": 0.6,
@@ -1542,7 +1551,8 @@ const DATA = {
       "gold": 200,
       "potions": 1,
       "recruit": 1,
-      "text": "새 용병 합류"
+      "text": "용병시장 열림",
+      "unlock": "market"
     },
     "2": {
       "chest": 1,
@@ -2679,6 +2689,15 @@ const perkRows = Object.entries(DATA.perks).flatMap(([fam, list]) => Object.entr
   <th>${p.name}<br><span class="note">${KIND[p.kind]} · ${DATA.families[fam]} 계열</span></th>
   <td class="num">${p.max === 1 ? "1번" : "Lv." + p.max}</td>
   <td>${p.descs.map((d, k) => p.max === 1 ? d : `<div><b>Lv.${k + 1}</b> ${d}</div>`).join("")}</td></tr>`)).join("");
+const MK = DATA.market;
+nBody += section("s-4-2b", "4.2.1.", "용병시장", `
+  <p>용병단에 처음 <b>E랭크</b>가 나오면(킹 슬라임 승급전) 첫 동료가 합류하고 홈의 [용병시장]이 열린다. 시장에는 용병 후보 ${MK.size}명이 찾아와 있고, 골드를 내고 영입한다. 용병단은 최대 ${MK.max_mercs}명이다.</p>
+  <ul>
+    <li><b>후보:</b> 종족·외형·무기 계열이 무작위다. 잿불 숲에서는 숙련도 0~${MK.max_lv}(직업 없음~F랭크)인 용병이 찾아온다.</li>
+    <li><b>가격:</b> ${MK.base}G + 숙련도 1당 ${MK.per_lv}G. 희귀 외형(✦)이면 ${MK.rare}배.</li>
+    <li><b>새 얼굴:</b> 지역을 클리어하고 돌아올 때마다 후보가 바뀐다. ${MK.reroll}G를 내면 바로 새 얼굴을 볼 수 있다.</li>
+    <li>새로 온 용병은 숙련도가 낮아 <b>출전 평균 랭크</b>를 낮춘다. 키울 동안은 대기시켜 두거나, 낮은 지역에 함께 데려가 키우자.</li>
+  </ul>`, 3, true);
 nBody += section("s-4-3", "4.3.", "강화", `
   <p>계열 숙련도가 <b>${DATA.perk_every}레벨</b> 오를 때마다 그 계열 강화 3개 중 하나를 고른다(숙련도 100이면 20번). 선택지는 무작위이며 능력치가 자주, 스킬은 드물게 나온다. 강화는 그 계열에 붙어서, <b>그 계열 무기를 들었을 때만</b> 켜진다. 홈의 [자동 강화]를 켜면 스킬 → 특성 → 능력치 순으로 알아서 고른다. 아이콘 테두리 색은 종류를 나타낸다(금색 스킬, 파랑 능력치, 초록 특성).</p>
   <p class="note">지금은 근접·방패·성물 계열이 있다. 방패의 [지면 강타]와 성물의 [물질화]는 특성 있는 보스의 카운터다(<a href="#s-6-0">6.0 특성과 카운터</a>). 사격·지팡이 계열은 준비 중.</p>
