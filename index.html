@@ -242,7 +242,7 @@ const ERA_INTRO = [
   "굴뚝 공장이 늘어선 도시. 하수구 쥐와 갱단, 증기 로봇이 나온다. 하늘에서는 비행선이 폭탄을 떨어뜨린다.",
   "네온 타워와 고리 행성 아래. 드론과 외계 벌레, 안드로이드가 몰려온다.",
 ];
-const ROLE = { shield: "탱커", sword: "딜러", ranged: "원거리 딜러", staff: "마법사", relic: "승려" };
+const ROLE = { shield: "탱커", sword: "근접 딜러", ranged: "원거리 딜러", staff: "마법사", relic: "승려" };
 const FAM_ORDER = ["shield", "sword", "ranged", "staff", "relic"];
 const FAM_COLOR = { shield: "#9aa4b4", sword: "#d8765c", ranged: "#9cbf5e", staff: "#a88ae0", relic: "#efe0b0" };
 const FAM_INTRO = {
@@ -453,7 +453,7 @@ toc.push({ id: "s-5", num: "5.", title: "무기", sub: false });
 let wBody = `<p>무기는 다섯 계열 × 다섯 발전도(원시~미래)로 나뉜다. 높은 대륙일수록 발전한 무기가 보물상자에 나온다. 무기를 쥐면 그 발전도와 계열에 맞는 옷을 자동으로 입는다. 같은 계열이라도 무기마다 공격 동작이 모두 다르다.</p>`;
 FAM_ORDER.forEach((f, i) => {
   const list = weapons.filter(w => w.family === f);
-  wBody += section(`s-5-${i + 1}`, `5.${i + 1}.`, `${DATA.families[f]} (${ROLE[f]})`, `<p>${FAM_INTRO[f]}</p><div class="grid">${list.map(weaponCard).join("")}</div>`, 3, true);
+  wBody += section(`s-5-${i + 1}`, `5.${i + 1}.`, `${DATA.families[f]} (${DATA.jobs[f]})`, `<p>${FAM_INTRO[f]}</p><div class="grid">${list.map(weaponCard).join("")}</div>`, 3, true);
 });
 html += section("s-5", "5.", "무기", wBody, 2, false, false);
 
