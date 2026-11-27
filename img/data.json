@@ -1461,7 +1461,6 @@
     "1": {
       "gold": 200,
       "potions": 1,
-      "recruit": 1,
       "text": "용병시장 열림",
       "unlock": "market"
     },
