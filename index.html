@@ -2854,7 +2854,7 @@ nBody += section("s-4-1", "4.1.", "외형", `
     <tr><th>장신구</th><td>${Object.values(L.accessories).map(v => v[0]).filter(Boolean).join(", ")} (없을 때가 가장 많다)</td></tr>
   </tbody></table></div>`, 3, true);
 nBody += section("s-4-2", "4.2.", "출전 인원", `
-  <p>홈에서 용병을 <b>출전/대기</b>로 바꾼다(최소 1명). 출전 인원에 따른 보정은 없다: 몇 명이 나가든 한 명이 받는 경험치, 체력, 공격력, 보물상자 수는 같다. 대기 중인 용병은 경험치를 받지 않는다.</p>`, 3, true);
+  <p>홈에서 용병을 <b>출전/대기</b>로 바꾼다(최소 1명). <b>경험치는 나눠 갖는다</b>: 몬스터 한 마리와 지역 클리어의 경험치를 출전한 용병 수로 나눈다(넷이 잡으면 한 명이 1/4). 공격·치유·맞아내기 한 번마다 받는 경험치 1은 각자 받는다. 체력·공격력·보물상자 수는 인원과 상관없다. 대기 중인 용병은 경험치를 받지 않는다.</p>`, 3, true);
 const KIND = { skill: "스킬", stat: "능력치", trait: "특성" };
 const perkRows = Object.entries(DATA.perks).flatMap(([fam, list]) => Object.entries(list).map(([id, p]) => `<tr>
   <td><img class="perk-icon" src="img/perk_${id}.png" alt=""></td>
