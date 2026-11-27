@@ -824,28 +824,6 @@
       "speed": 25.0
     }
   ],
-  "named": [
-    {
-      "bangs": true,
-      "body": "female",
-      "desc": "허리까지 오는 붉은 웨이브 머리에 앞머리를 내린, 붉은 눈의 여검사. 테스트용 특별 용병.",
-      "eye_color": "d0202e",
-      "eyes": "big",
-      "hair": "b8302a",
-      "hair_style": "long_wavy",
-      "id": "rubia",
-      "name": "루비아",
-      "race": "human",
-      "showcase": [
-        "stone_axe",
-        "bronze_sword",
-        "katana",
-        "greatsword",
-        "laser_blade"
-      ],
-      "skin": "f1d2b0"
-    }
-  ],
   "party": {
     "atk": [
       1.5,
