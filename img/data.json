@@ -1592,6 +1592,104 @@
       "range": 62.0
     },
     {
+      "cd": 0.6,
+      "era": 0,
+      "family": "sword",
+      "id": "wood_club",
+      "motion": "bonk",
+      "name": "나무 몽둥이",
+      "outfit": {
+        "colors": {
+          "a": "9a7650",
+          "b": "6e5236",
+          "c": "4a3020",
+          "f": "skin_dark",
+          "k": "4a3020",
+          "l": "skin",
+          "p": "c03a2a",
+          "w": "9a7650"
+        },
+        "head": "warpaint",
+        "torso": "bare_strap"
+      },
+      "power": 9.0,
+      "range": 50.0
+    },
+    {
+      "cd": 0.42,
+      "era": 0,
+      "family": "sword",
+      "id": "obsidian_knife",
+      "motion": "stab",
+      "name": "흑요석 단검",
+      "outfit": {
+        "colors": {
+          "a": "9a7650",
+          "b": "6e5236",
+          "c": "4a3020",
+          "f": "skin_dark",
+          "k": "4a3020",
+          "l": "skin",
+          "p": "c03a2a",
+          "w": "9a7650"
+        },
+        "head": "warpaint",
+        "torso": "bare_strap"
+      },
+      "power": 7.0,
+      "range": 46.0
+    },
+    {
+      "aoe": 18.0,
+      "cd": 1.6,
+      "era": 0,
+      "family": "sword",
+      "id": "stone_maul",
+      "motion": "smash",
+      "name": "돌망치",
+      "outfit": {
+        "colors": {
+          "a": "9a7650",
+          "b": "6e5236",
+          "c": "4a3020",
+          "f": "skin_dark",
+          "k": "4a3020",
+          "l": "skin",
+          "p": "c03a2a",
+          "w": "9a7650"
+        },
+        "head": "warpaint",
+        "torso": "bare_strap"
+      },
+      "power": 24.0,
+      "range": 56.0
+    },
+    {
+      "aoe": 14.0,
+      "cd": 1.1,
+      "era": 0,
+      "family": "sword",
+      "id": "bone_scythe",
+      "motion": "sweep",
+      "name": "뼈 낫",
+      "outfit": {
+        "colors": {
+          "a": "9a7650",
+          "b": "6e5236",
+          "c": "4a3020",
+          "f": "skin_dark",
+          "k": "4a3020",
+          "l": "skin",
+          "p": "c03a2a",
+          "w": "9a7650"
+        },
+        "head": "warpaint",
+        "torso": "bare_strap"
+      },
+      "power": 15.0,
+      "range": 64.0
+    },
+    {
       "cd": 0.9,
       "era": 1,
       "family": "sword",
