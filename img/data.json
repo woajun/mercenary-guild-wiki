@@ -1094,26 +1094,6 @@
       "speed": 25.0
     }
   ],
-  "party": {
-    "atk": [
-      1.5,
-      1.25,
-      1.1,
-      1.0
-    ],
-    "hp": [
-      2.2,
-      1.5,
-      1.2,
-      1.0
-    ],
-    "xp": [
-      2.0,
-      1.5,
-      1.2,
-      1.0
-    ]
-  },
   "perk_every": 1,
   "perks": {
     "ranged": {
@@ -1593,6 +1573,7 @@
       "def": 25.0,
       "era": 0,
       "family": "shield",
+      "from": 11,
       "id": "wood_shield",
       "motion": "bash",
       "name": "나무 방패",
@@ -1764,6 +1745,7 @@
     },
     {
       "cd": 1.0,
+      "crit": 0.05,
       "era": 0,
       "family": "sword",
       "from": 3,
@@ -1789,6 +1771,7 @@
     },
     {
       "cd": 0.42,
+      "crit": 0.15,
       "era": 0,
       "family": "sword",
       "from": 4,
@@ -2033,6 +2016,7 @@
       "cd": 1.0,
       "era": 0,
       "family": "ranged",
+      "from": 11,
       "id": "stone",
       "motion": "throw",
       "name": "돌",
@@ -2154,6 +2138,7 @@
       "cd": 1.6,
       "era": 0,
       "family": "staff",
+      "from": 11,
       "id": "bone_staff",
       "motion": "raise",
       "name": "뼈 지팡이",
@@ -2280,6 +2265,7 @@
       "cd": 1.5,
       "era": 0,
       "family": "relic",
+      "from": 11,
       "id": "charm",
       "motion": "dangle",
       "name": "주술 부적",
