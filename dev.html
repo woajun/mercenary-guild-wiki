@@ -53,6 +53,7 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 .chip { font-size: 12px; font-weight: 700; padding: 1px 8px; border-radius: 999px; border: 1.5px solid currentColor; white-space: nowrap; }
 .s-진행 { color: var(--s-run); }
 .s-기획 { color: var(--s-plan); }
+.s-적용.전, .s-적용\ 전 { color: var(--s-plan); }
 .s-적용 { color: var(--s-done); }
 .count { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .body { margin: 0; padding: 12px 14px 4px; white-space: pre-wrap; }
@@ -77,9 +78,9 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
   <section aria-labelledby="h-next">
     <h2 id="h-next">다음에 할 것</h2>
     <ol class="next-list"><li class="next"><a href="#next_talent"><span class="num">1</span>
-<span class="next-t">재능 성장 개편 (기획)</span><span class="chip s-기획">기획</span><span class="count">0/5</span></a></li><li class="next"><a href="#next_rankup"><span class="num">2</span>
-<span class="next-t">랭크업 방식 재검토</span><span class="chip s-기획">기획</span><span class="count">0/1</span></a></li><li class="next"><a href="#next_traits"><span class="num">3</span>
-<span class="next-t">용병 특성</span><span class="chip s-기획">기획</span><span class="count">0/3</span></a></li></ol>
+<span class="next-t">재능 성장 개편 (기획)</span><span class="chip s-plan">적용 전</span><span class="count">0/5</span></a></li><li class="next"><a href="#next_rankup"><span class="num">2</span>
+<span class="next-t">랭크업 방식 재검토</span><span class="chip s-plan">적용 전</span><span class="count">0/1</span></a></li><li class="next"><a href="#next_traits"><span class="num">3</span>
+<span class="next-t">용병 특성</span><span class="chip s-plan">적용 전</span><span class="count">0/3</span></a></li></ol>
   </section>
   <div class="tools" role="group" aria-label="펼치기">
     <button type="button" data-act="open">모두 펼치기</button>
@@ -90,16 +91,17 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
   <h2 id="h-원칙">원칙 <small>2</small></h2>
   
 <details class="note" id="principles" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">설계 원칙</span></summary>
+  <summary><span class="chip s-done">적용</span><span class="title">설계 원칙</span></summary>
   <p class="body">· 정 붙은 용병은 끝까지 키우면 최강 (재능은 속도 차이, 끝은 같음). 보장은 숨김
 · 두 플레이: 생각 없이 하는 사람 / 전략적으로 하는 사람 모두 만족
 · 화면 글 최소화: 아이콘·숫자·색·동작. 설명은 이 개발 노트에만
 · 플레이 감상은 원인 먼저 설명 → 고칠지 협의
-· 개발 노트는 주제 탭(원칙·재능·성장·특성·장비·콘텐츠·기타)으로 나눈다</p>
+· 개발 노트는 주제 탭(원칙·재능·성장·특성·장비·콘텐츠·기타)으로 나눈다
+· 기획은 위키 개발 노트에 먼저 &#x27;적용 전&#x27;으로 정리 → 확정되면 게임에 적용하고 &#x27;적용&#x27;으로</p>
   
 </details>
 <details class="note" id="rules" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">현재 규칙 요약</span></summary>
+  <summary><span class="chip s-done">적용</span><span class="title">현재 규칙 요약</span></summary>
   <p class="body">· 레벨업: 숙련도 1당 능력치 1개 선택 (공격력 +8% · 공격 속도 +7% · 체력 +10%), 몸에 누적, 상한 없음. 선택지 무작위 3장, 15%로 +2
 · 공격 속도: 공격 간격·기술 쿨타임 모두 ÷(1+0.07×Lv)
 · 기술: E·D랭크에 습득, 사용할수록 Lv.5까지 성장. 기본 공격(베기·방패 밀기·쏘기·마력탄·치유의 빛)도 기술, Lv.10까지 (+6%/Lv)
@@ -118,7 +120,7 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
   <h2 id="h-재능">재능 <small>2</small></h2>
   
 <details class="note" id="talent_now" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">재능: 현재 규칙</span></summary>
+  <summary><span class="chip s-done">적용</span><span class="title">재능: 현재 규칙</span></summary>
   <p class="body">· 등급별 공격 배율 (그 계열 무기를 들 때)
   - 없음 ×0.85 / 브론즈 ×1.0 / 실버 ×1.2 / 골드 ×1.45 / 무지개 ×1.8
 · 랭크당 보너스 (공격 +8% · 체력 +10%)는 재능과 무관
@@ -136,8 +138,8 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 · 종족: 인간 고르게 / 수인족 검·방패 / 엘프 사격·스태프가 잘 나옴</p>
   
 </details>
-<details class="note" id="next_talent" data-status="기획" open>
-  <summary><span class="chip s-기획">기획</span><span class="title">재능 성장 개편 (기획)</span><span class="count">0/5</span></summary>
+<details class="note" id="next_talent" data-status="적용 전" open>
+  <summary><span class="chip s-plan">적용 전</span><span class="title">재능 성장 개편 (기획)</span><span class="count">0/5</span></summary>
   <p class="body">· 보조 효과 여러 개: 브론즈 이상 모든 재능이 들고 있지 않아도 동시에 보조 효과 (보조 1개 고르기 없앰)
   - 브론즈도 아주 작게: 검 공격 +1% / 방패 피해 −1% / 사격 치명 +1% / 스태프 주변 10 / 성물 회복 0.2%/초
   - 실버·골드·무지개는 지금 값 그대로
@@ -154,14 +156,14 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <section class="group" id="t-성장" aria-labelledby="h-성장">
   <h2 id="h-성장">성장 <small>2</small></h2>
   
-<details class="note" id="next_rankup" data-status="기획" open>
-  <summary><span class="chip s-기획">기획</span><span class="title">랭크업 방식 재검토</span><span class="count">0/1</span></summary>
+<details class="note" id="next_rankup" data-status="적용 전" open>
+  <summary><span class="chip s-plan">적용 전</span><span class="title">랭크업 방식 재검토</span><span class="count">0/1</span></summary>
   <p class="body">· 문제: 파티와 높은 의뢰를 깨도 승급전 대상이 아니면 랭크가 안 오름
 · 안: 자기 랭크보다 높은 등급 의뢰 성공 시 한 단계 승급 (보류 중)</p>
   <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>결정</li></ul>
 </details>
-<details class="note" id="growth_boost" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">강화 돌파 효과</span><span class="count">0/1</span></summary>
+<details class="note" id="growth_boost" data-status="적용 전">
+  <summary><span class="chip s-plan">적용 전</span><span class="title">강화 돌파 효과</span><span class="count">0/1</span></summary>
   <p class="body">· 능력치 30·60·90개마다 누구나 돌파
 · 효과 모양은 비율로 결정 (공격 위주 강타, 속도 위주 2연타, 반반 연계, 체력 위주 버티기)
 · 상세에 다음 돌파·예상 효과 표시</p>
@@ -171,15 +173,15 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <section class="group" id="t-특성" aria-labelledby="h-특성">
   <h2 id="h-특성">특성 <small>2</small></h2>
   
-<details class="note" id="next_traits" data-status="기획" open>
-  <summary><span class="chip s-기획">기획</span><span class="title">용병 특성</span><span class="count">0/3</span></summary>
+<details class="note" id="next_traits" data-status="적용 전" open>
+  <summary><span class="chip s-plan">적용 전</span><span class="title">용병 특성</span><span class="count">0/3</span></summary>
   <p class="body">· 고유 특성 1개씩 (불사신·유아독존·배수진·눈이 좋은·대기만성 등), 첫 발동 때 공개
 · 겪어서 얻는 특성 (위기 생존 → 잘 죽지 않는, 보스 마무리 → 보스 사냥꾼)
 · 발동이 눈에 보이는 효과만</p>
   <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>특성 목록 10개</li><li class=""><span class="box" aria-hidden="true"></span>발동 연출·첫 발동 공개</li><li class=""><span class="box" aria-hidden="true"></span>상세 화면 표시</li></ul>
 </details>
-<details class="note" id="class_cards" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">직업 카드</span><span class="count">0/3</span></summary>
+<details class="note" id="class_cards" data-status="적용 전">
+  <summary><span class="chip s-plan">적용 전</span><span class="title">직업 카드</span><span class="count">0/3</span></summary>
   <p class="body">· E랭크 승급 때 직업 카드 3장 중 선택 (재능 높은 계열 + 든 무기 기준)
 · 직업마다 모션·기술·역할이 확실히 달라야 함
 · 근접 3직업(수호기사·도적·광전사)으로 먼저 검증</p>
@@ -189,8 +191,8 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <section class="group" id="t-장비" aria-labelledby="h-장비">
   <h2 id="h-장비">장비 <small>1</small></h2>
   
-<details class="note" id="junk_weapons" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">필요 없는 무기 처리</span><span class="count">0/1</span></summary>
+<details class="note" id="junk_weapons" data-status="적용 전">
+  <summary><span class="chip s-plan">적용 전</span><span class="title">필요 없는 무기 처리</span><span class="count">0/1</span></summary>
   <p class="body">· 안1: 가방 &#x27;필요 없는 무기 팔기&#x27; 한 번에 (추천, 빠름)
 · 안2: 녹여서 주력 무기 강화 (장기)</p>
   <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>방향 결정</li></ul>
@@ -199,8 +201,8 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <section class="group" id="t-콘텐츠" aria-labelledby="h-콘텐츠">
   <h2 id="h-콘텐츠">콘텐츠 <small>1</small></h2>
   
-<details class="note" id="content" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">콘텐츠</span><span class="count">0/3</span></summary>
+<details class="note" id="content" data-status="적용 전">
+  <summary><span class="chip s-plan">적용 전</span><span class="title">콘텐츠</span><span class="count">0/3</span></summary>
   <p class="body">· 대륙 4~6 (깊은 바다·천상궁·마왕성): 배경·야영지·몬스터·무기
 · 사막 일반 몬스터 2~3종 추가 (우두머리 중복 해소)
 · B·A·S 승급전</p>
@@ -210,13 +212,13 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <section class="group" id="t-기타" aria-labelledby="h-기타">
   <h2 id="h-기타">기타 <small>2</small></h2>
   
-<details class="note" id="small" data-status="진행">
-  <summary><span class="chip s-진행">진행</span><span class="title">작은 할 일</span><span class="count">0/6</span></summary>
+<details class="note" id="small" data-status="적용 전">
+  <summary><span class="chip s-plan">적용 전</span><span class="title">작은 할 일</span><span class="count">0/6</span></summary>
   <p class="body">· 우선순위 낮은 개선 모음</p>
   <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>성물 2번째 기술 (D랭크)</li><li class=""><span class="box" aria-hidden="true"></span>나무 활·사냥 활 그림 구분</li><li class=""><span class="box" aria-hidden="true"></span>스킬 슬롯 3칸 검토</li><li class=""><span class="box" aria-hidden="true"></span>강화 아이콘 10레벨마다 테두리 색</li><li class=""><span class="box" aria-hidden="true"></span>경력자 성향에서 기술 없는 계열의 &#x27;스킬파&#x27; 제외</li><li class=""><span class="box" aria-hidden="true"></span>좌우 밀기 넘기기 iPhone 확인</li></ul>
 </details>
-<details class="note" id="balance" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">밸런스 점검</span><span class="count">0/1</span></summary>
+<details class="note" id="balance" data-status="적용 전">
+  <summary><span class="chip s-plan">적용 전</span><span class="title">밸런스 점검</span><span class="count">0/1</span></summary>
   <p class="body">· 공격 속도가 기술 쿨타임까지 줄여 과할 수 있음
 · 기술 성장 속도, 따라잡기 +5% 적정성
 · 방패 파티 (기절 단축 후) 난이도</p>
