@@ -68,7 +68,7 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <div class="wrap">
   <header>
     <h1>개발 노트</h1>
-    <div class="meta"><span>용병단 키우기 · 노트 37개</span><span>갱신 2026-11-28</span><a href="./">위키</a><a href="./play/">게임</a></div>
+    <div class="meta"><span>용병단 키우기 · 노트 38개</span><span>갱신 2026-11-28</span><a href="./">위키</a><a href="./play/">게임</a></div>
   </header>
   <section aria-labelledby="h-next">
     <h2 id="h-next">다음에 할 것</h2>
@@ -180,8 +180,13 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 </details>
 </section>
 <section class="group" aria-labelledby="h-적용">
-  <h2 id="h-적용">적용 <small>21 · 게임에 들어감</small></h2>
+  <h2 id="h-적용">적용 <small>22 · 게임에 들어감</small></h2>
   
+<details class="note" id="catchup_xp" data-status="적용">
+  <summary><span class="chip s-적용">적용</span><span class="title">따라잡기 경험치</span><span class="count">0/1</span></summary>
+  <p class="body">계기: 55레벨로 혼자 키우다 골드 재능 용병을 영입했더니 &#x27;다시 55번 골라야 하나&#x27; 부담. 원인: 시장 용병은 숙련도 0~6에서 시작, 함께 출전하면 경험치를 나눠 받아 더 느림, 레벨마다 고르기. 지금: 용병단에서 가장 많이 키운 용병(주 계열 숙련도)보다 낮으면 차이 1레벨마다 경험치 +5% (GameData.CATCHUP_PER_LV). 시험: 55레벨 옆 새 용병(0)은 처치 40번에 14, 200번에 31 (배율 3.05 → 2.35). 앞 용병을 추월하지는 않는다. 한꺼번에 고르기 버튼은 넣지 않았다(사용자 선택).</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>따라잡는 속도가 적당한지 플레이로 보기 (+5% → 더 크게?)</li></ul>
+</details>
 <details class="note" id="chief_variants" data-status="적용">
   <summary><span class="chip s-적용">적용</span><span class="title">같은 몬스터 우두머리에 별명·모습 차이</span><span class="count">0/1</span></summary>
   <p class="body">원인: 대륙마다 일반 몬스터가 3종 남짓인데 우두머리 자리는 8개라 같은 몬스터가 겹친다 (오아시스: 거대 전갈 4장). 지금: 같은 대륙에서 두 번째부터 별명(외눈 → 흉터투성이 → 늙은 → 성난 → 피 묻은 → 굶주린)을 붙이고 &#x27;우두머리&#x27;는 첫 장만. 별명 붙은 녀석은 한 단계마다 10% 더 크고(수배지 그림 12%) 전투에서 빛깔이 다르다. 능력치는 같다. 현상금 id는 그대로라 저장은 영향 없음.</p>
