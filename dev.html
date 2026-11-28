@@ -282,6 +282,7 @@ document.querySelectorAll('.tools button').forEach(b => b.addEventListener('clic
 }));
 // 질문: ? 누르면 그 줄이 채워진 GitHub 이슈 작성 화면 (로그인 필요). 열린 질문은 말풍선으로
 const REPO = 'woajun/mercenary-guild-wiki';
+const ANSWERED = new Set([]);
 document.addEventListener('click', e => {
   const b = e.target.closest('.q');
   if (!b) return;
@@ -294,7 +295,7 @@ document.addEventListener('click', e => {
 }, true);
 fetch('https://api.github.com/repos/' + REPO + '/issues?state=open&per_page=100').then(r => r.ok ? r.json() : []).then(list => {
   for (const it of list) {
-    if (it.pull_request) continue;
+    if (it.pull_request || ANSWERED.has(it.number)) continue;
     const m = /row:(\w+) card:([\w-]+)/.exec(it.body || '');
     if (!m) continue;
     const row = document.querySelector('.row[data-h="' + m[1] + '"]');
