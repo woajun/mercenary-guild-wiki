@@ -61,6 +61,9 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 .box { width: 16px; height: 16px; margin-top: 4px; border: 1.5px solid var(--muted); border-radius: 3px; font-size: 12px; line-height: 13px; text-align: center; color: var(--s-done); }
 .todo li.done { color: var(--muted); text-decoration: line-through; }
 .todo li.done .box { border-color: var(--s-done); }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; position: sticky; top: 0; background: var(--bg); padding: 8px 0; z-index: 2; }
+.tab { font-size: 14px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); }
+.tab:hover { background: var(--panel-2); }
 .tools { display: flex; gap: 8px; flex-wrap: wrap; }
 .tools button { font: inherit; font-size: 13px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); cursor: pointer; }
 .tools button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
@@ -68,8 +71,9 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <div class="wrap">
   <header>
     <h1>개발 노트</h1>
-    <div class="meta"><span>용병단 키우기 · 노트 11개</span><span>갱신 2026-11-28</span><a href="./">위키</a><a href="./play/">게임</a></div>
+    <div class="meta"><span>용병단 키우기 · 노트 12개</span><span>갱신 2026-11-28</span><a href="./">위키</a><a href="./play/">게임</a></div>
   </header>
+  <nav class="tabs" aria-label="주제"><a class="tab" href="#t-원칙">원칙</a><a class="tab" href="#t-재능">재능</a><a class="tab" href="#t-성장">성장</a><a class="tab" href="#t-특성">특성</a><a class="tab" href="#t-장비">장비</a><a class="tab" href="#t-콘텐츠">콘텐츠</a><a class="tab" href="#t-기타">기타</a></nav>
   <section aria-labelledby="h-next">
     <h2 id="h-next">다음에 할 것</h2>
     <ol class="next-list"><li class="next"><a href="#next_talent"><span class="num">1</span>
@@ -82,82 +86,16 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
     <button type="button" data-act="close">모두 접기</button>
   </div>
   
-<section class="group" aria-labelledby="h-진행">
-  <h2 id="h-진행">진행 <small>1 · 지금 하는 중</small></h2>
-  
-<details class="note" id="small" data-status="진행">
-  <summary><span class="chip s-진행">진행</span><span class="title">작은 할 일</span><span class="count">0/6</span></summary>
-  <p class="body">· 우선순위 낮은 개선 모음</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>성물 2번째 기술 (D랭크)</li><li class=""><span class="box" aria-hidden="true"></span>나무 활·사냥 활 그림 구분</li><li class=""><span class="box" aria-hidden="true"></span>스킬 슬롯 3칸 검토</li><li class=""><span class="box" aria-hidden="true"></span>강화 아이콘 10레벨마다 테두리 색</li><li class=""><span class="box" aria-hidden="true"></span>경력자 성향에서 기술 없는 계열의 &#x27;스킬파&#x27; 제외</li><li class=""><span class="box" aria-hidden="true"></span>좌우 밀기 넘기기 iPhone 확인</li></ul>
-</details>
-</section>
-<section class="group" aria-labelledby="h-기획">
-  <h2 id="h-기획">기획 <small>8 · 정리만, 아직 안 만듦</small></h2>
-  
-<details class="note" id="next_talent" data-status="기획" open>
-  <summary><span class="chip s-기획">기획</span><span class="title">재능 성장 보장 (숨은 정 게이지)</span><span class="count">0/4</span></summary>
-  <p class="body">· 현재: 랭크업 때 15% 확률만 → C까지 브론즈가 무지개 될 확률 0.3%
-· 안: 출전·위기 극복·보스 마무리로 숨은 &#x27;정&#x27; 누적 → 재능 상승 확률 증가, 보스 처치·위기 직후 판정
-· 안전망: 최고 랭크 근처 무지개 확정. 화면 표시 없음</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>정 값 저장·누적 규칙</li><li class=""><span class="box" aria-hidden="true"></span>확률 곡선·판정 시점</li><li class=""><span class="box" aria-hidden="true"></span>재능 각성 연출</li><li class=""><span class="box" aria-hidden="true"></span>최고 랭크 안전망</li></ul>
-</details>
-<details class="note" id="next_rankup" data-status="기획" open>
-  <summary><span class="chip s-기획">기획</span><span class="title">랭크업 방식 재검토</span><span class="count">0/1</span></summary>
-  <p class="body">· 문제: 파티와 높은 의뢰를 깨도 승급전 대상이 아니면 랭크가 안 오름
-· 안: 자기 랭크보다 높은 등급 의뢰 성공 시 한 단계 승급 (보류 중)</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>결정</li></ul>
-</details>
-<details class="note" id="next_traits" data-status="기획" open>
-  <summary><span class="chip s-기획">기획</span><span class="title">용병 특성</span><span class="count">0/3</span></summary>
-  <p class="body">· 고유 특성 1개씩 (불사신·유아독존·배수진·눈이 좋은·대기만성 등), 첫 발동 때 공개
-· 겪어서 얻는 특성 (위기 생존 → 잘 죽지 않는, 보스 마무리 → 보스 사냥꾼)
-· 발동이 눈에 보이는 효과만</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>특성 목록 10개</li><li class=""><span class="box" aria-hidden="true"></span>발동 연출·첫 발동 공개</li><li class=""><span class="box" aria-hidden="true"></span>상세 화면 표시</li></ul>
-</details>
-<details class="note" id="class_cards" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">직업 카드</span><span class="count">0/3</span></summary>
-  <p class="body">· E랭크 승급 때 직업 카드 3장 중 선택 (재능 높은 계열 + 든 무기 기준)
-· 직업마다 모션·기술·역할이 확실히 달라야 함
-· 근접 3직업(수호기사·도적·광전사)으로 먼저 검증</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>직업 바꾸기·다른 무기 허용 규칙</li><li class=""><span class="box" aria-hidden="true"></span>근접 시범 직업 3개</li><li class=""><span class="box" aria-hidden="true"></span>직업 카드 화면</li></ul>
-</details>
-<details class="note" id="junk_weapons" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">필요 없는 무기 처리</span><span class="count">0/1</span></summary>
-  <p class="body">· 안1: 가방 &#x27;필요 없는 무기 팔기&#x27; 한 번에 (추천, 빠름)
-· 안2: 녹여서 주력 무기 강화 (장기)</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>방향 결정</li></ul>
-</details>
-<details class="note" id="growth_boost" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">강화 돌파 효과</span><span class="count">0/1</span></summary>
-  <p class="body">· 능력치 30·60·90개마다 누구나 돌파
-· 효과 모양은 비율로 결정 (공격 위주 강타, 속도 위주 2연타, 반반 연계, 체력 위주 버티기)
-· 상세에 다음 돌파·예상 효과 표시</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>효과·수치</li></ul>
-</details>
-<details class="note" id="content" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">콘텐츠</span><span class="count">0/3</span></summary>
-  <p class="body">· 대륙 4~6 (깊은 바다·천상궁·마왕성): 배경·야영지·몬스터·무기
-· 사막 일반 몬스터 2~3종 추가 (우두머리 중복 해소)
-· B·A·S 승급전</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>대륙 4</li><li class=""><span class="box" aria-hidden="true"></span>사막 몬스터</li><li class=""><span class="box" aria-hidden="true"></span>B·A·S 승급전</li></ul>
-</details>
-<details class="note" id="balance" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">밸런스 점검</span><span class="count">0/1</span></summary>
-  <p class="body">· 공격 속도가 기술 쿨타임까지 줄여 과할 수 있음
-· 기술 성장 속도, 따라잡기 +5% 적정성
-· 방패 파티 (기절 단축 후) 난이도</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>플레이 데이터로 확인</li></ul>
-</details>
-</section>
-<section class="group" aria-labelledby="h-적용">
-  <h2 id="h-적용">적용 <small>2 · 게임에 들어감</small></h2>
+<section class="group" id="t-원칙" aria-labelledby="h-원칙">
+  <h2 id="h-원칙">원칙 <small>2</small></h2>
   
 <details class="note" id="principles" data-status="적용">
   <summary><span class="chip s-적용">적용</span><span class="title">설계 원칙</span></summary>
   <p class="body">· 정 붙은 용병은 끝까지 키우면 최강 (재능은 속도 차이, 끝은 같음). 보장은 숨김
 · 두 플레이: 생각 없이 하는 사람 / 전략적으로 하는 사람 모두 만족
 · 화면 글 최소화: 아이콘·숫자·색·동작. 설명은 이 개발 노트에만
-· 플레이 감상은 원인 먼저 설명 → 고칠지 협의</p>
+· 플레이 감상은 원인 먼저 설명 → 고칠지 협의
+· 개발 노트는 주제 탭(원칙·재능·성장·특성·장비·콘텐츠·기타)으로 나눈다</p>
   
 </details>
 <details class="note" id="rules" data-status="적용">
@@ -174,6 +112,100 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 · 보상: 클리어 무기 1, 현상금 첫 사냥 무기 1 + 전액, 재사냥 절반. 충분히 가진 무기 대신 골드
 · 시장: 신병(0~5, 강화 없음) / 경력자(대륙 레벨·랭크, 성향 강화). 직업 재능 공개, 나머지 ?</p>
   
+</details>
+</section>
+<section class="group" id="t-재능" aria-labelledby="h-재능">
+  <h2 id="h-재능">재능 <small>2</small></h2>
+  
+<details class="note" id="talent_now" data-status="적용">
+  <summary><span class="chip s-적용">적용</span><span class="title">재능: 현재 규칙</span></summary>
+  <p class="body">· 계열별 등급: 없음 · 브론즈 · 실버 · 골드 · 무지개
+· 그 계열 무기를 들면 공격 ×0.85 · ×1.0 · ×1.2 · ×1.45 · ×1.8
+· 랭크당 보너스(공격 +8% · 체력 +10%)는 재능과 무관
+· 실버 이상은 보조 효과 (검 공격 / 방패 피해 감소 / 사격 치명 / 스태프 주변 피해 / 성물 회복)
+· 상승: F→E, E→D, D→C 승급 때 계열별 15% (C까지 3번)
+· 공개: 첫 용병은 처음부터, 시장 용병은 영입 즉시. 시장에서는 직업 재능만 보이고 나머지는 ?·룰렛
+· 종족: 인간 고르게, 수인족 검·방패, 엘프 사격·스태프가 잘 나옴</p>
+  
+</details>
+<details class="note" id="next_talent" data-status="기획" open>
+  <summary><span class="chip s-기획">기획</span><span class="title">재능 성장 보장 (숨은 정 게이지)</span><span class="count">0/4</span></summary>
+  <p class="body">· 현재: 랭크업 때 15% 확률만 → C까지 브론즈가 무지개 될 확률 0.3%
+· 안: 출전·위기 극복·보스 마무리로 숨은 &#x27;정&#x27; 누적 → 재능 상승 확률 증가, 보스 처치·위기 직후 판정
+· 안전망: 최고 랭크 근처 무지개 확정. 화면 표시 없음</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>정 값 저장·누적 규칙</li><li class=""><span class="box" aria-hidden="true"></span>확률 곡선·판정 시점</li><li class=""><span class="box" aria-hidden="true"></span>재능 각성 연출</li><li class=""><span class="box" aria-hidden="true"></span>최고 랭크 안전망</li></ul>
+</details>
+</section>
+<section class="group" id="t-성장" aria-labelledby="h-성장">
+  <h2 id="h-성장">성장 <small>2</small></h2>
+  
+<details class="note" id="next_rankup" data-status="기획" open>
+  <summary><span class="chip s-기획">기획</span><span class="title">랭크업 방식 재검토</span><span class="count">0/1</span></summary>
+  <p class="body">· 문제: 파티와 높은 의뢰를 깨도 승급전 대상이 아니면 랭크가 안 오름
+· 안: 자기 랭크보다 높은 등급 의뢰 성공 시 한 단계 승급 (보류 중)</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>결정</li></ul>
+</details>
+<details class="note" id="growth_boost" data-status="기획">
+  <summary><span class="chip s-기획">기획</span><span class="title">강화 돌파 효과</span><span class="count">0/1</span></summary>
+  <p class="body">· 능력치 30·60·90개마다 누구나 돌파
+· 효과 모양은 비율로 결정 (공격 위주 강타, 속도 위주 2연타, 반반 연계, 체력 위주 버티기)
+· 상세에 다음 돌파·예상 효과 표시</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>효과·수치</li></ul>
+</details>
+</section>
+<section class="group" id="t-특성" aria-labelledby="h-특성">
+  <h2 id="h-특성">특성 <small>2</small></h2>
+  
+<details class="note" id="next_traits" data-status="기획" open>
+  <summary><span class="chip s-기획">기획</span><span class="title">용병 특성</span><span class="count">0/3</span></summary>
+  <p class="body">· 고유 특성 1개씩 (불사신·유아독존·배수진·눈이 좋은·대기만성 등), 첫 발동 때 공개
+· 겪어서 얻는 특성 (위기 생존 → 잘 죽지 않는, 보스 마무리 → 보스 사냥꾼)
+· 발동이 눈에 보이는 효과만</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>특성 목록 10개</li><li class=""><span class="box" aria-hidden="true"></span>발동 연출·첫 발동 공개</li><li class=""><span class="box" aria-hidden="true"></span>상세 화면 표시</li></ul>
+</details>
+<details class="note" id="class_cards" data-status="기획">
+  <summary><span class="chip s-기획">기획</span><span class="title">직업 카드</span><span class="count">0/3</span></summary>
+  <p class="body">· E랭크 승급 때 직업 카드 3장 중 선택 (재능 높은 계열 + 든 무기 기준)
+· 직업마다 모션·기술·역할이 확실히 달라야 함
+· 근접 3직업(수호기사·도적·광전사)으로 먼저 검증</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>직업 바꾸기·다른 무기 허용 규칙</li><li class=""><span class="box" aria-hidden="true"></span>근접 시범 직업 3개</li><li class=""><span class="box" aria-hidden="true"></span>직업 카드 화면</li></ul>
+</details>
+</section>
+<section class="group" id="t-장비" aria-labelledby="h-장비">
+  <h2 id="h-장비">장비 <small>1</small></h2>
+  
+<details class="note" id="junk_weapons" data-status="기획">
+  <summary><span class="chip s-기획">기획</span><span class="title">필요 없는 무기 처리</span><span class="count">0/1</span></summary>
+  <p class="body">· 안1: 가방 &#x27;필요 없는 무기 팔기&#x27; 한 번에 (추천, 빠름)
+· 안2: 녹여서 주력 무기 강화 (장기)</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>방향 결정</li></ul>
+</details>
+</section>
+<section class="group" id="t-콘텐츠" aria-labelledby="h-콘텐츠">
+  <h2 id="h-콘텐츠">콘텐츠 <small>1</small></h2>
+  
+<details class="note" id="content" data-status="기획">
+  <summary><span class="chip s-기획">기획</span><span class="title">콘텐츠</span><span class="count">0/3</span></summary>
+  <p class="body">· 대륙 4~6 (깊은 바다·천상궁·마왕성): 배경·야영지·몬스터·무기
+· 사막 일반 몬스터 2~3종 추가 (우두머리 중복 해소)
+· B·A·S 승급전</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>대륙 4</li><li class=""><span class="box" aria-hidden="true"></span>사막 몬스터</li><li class=""><span class="box" aria-hidden="true"></span>B·A·S 승급전</li></ul>
+</details>
+</section>
+<section class="group" id="t-기타" aria-labelledby="h-기타">
+  <h2 id="h-기타">기타 <small>2</small></h2>
+  
+<details class="note" id="small" data-status="진행">
+  <summary><span class="chip s-진행">진행</span><span class="title">작은 할 일</span><span class="count">0/6</span></summary>
+  <p class="body">· 우선순위 낮은 개선 모음</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>성물 2번째 기술 (D랭크)</li><li class=""><span class="box" aria-hidden="true"></span>나무 활·사냥 활 그림 구분</li><li class=""><span class="box" aria-hidden="true"></span>스킬 슬롯 3칸 검토</li><li class=""><span class="box" aria-hidden="true"></span>강화 아이콘 10레벨마다 테두리 색</li><li class=""><span class="box" aria-hidden="true"></span>경력자 성향에서 기술 없는 계열의 &#x27;스킬파&#x27; 제외</li><li class=""><span class="box" aria-hidden="true"></span>좌우 밀기 넘기기 iPhone 확인</li></ul>
+</details>
+<details class="note" id="balance" data-status="기획">
+  <summary><span class="chip s-기획">기획</span><span class="title">밸런스 점검</span><span class="count">0/1</span></summary>
+  <p class="body">· 공격 속도가 기술 쿨타임까지 줄여 과할 수 있음
+· 기술 성장 속도, 따라잡기 +5% 적정성
+· 방패 파티 (기절 단축 후) 난이도</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>플레이 데이터로 확인</li></ul>
 </details>
 </section>
 </div>
