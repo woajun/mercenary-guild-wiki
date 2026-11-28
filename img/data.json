@@ -1553,15 +1553,21 @@
   },
   "rank_trials": {
     "1": [
-      "king_slime"
+      "king_slime",
+      "scorpion",
+      "wolf"
     ],
     "2": [
-      "ogre"
+      "ogre",
+      "mummy",
+      "skeleton"
     ],
     "3": [
       "scorpion_king",
       "black_cobra",
-      "sand_worm"
+      "sand_worm",
+      "black_knight",
+      "ghost"
     ]
   },
   "ranks": [

@@ -1781,15 +1781,21 @@ const DATA = {
   },
   "rank_trials": {
     "1": [
-      "king_slime"
+      "king_slime",
+      "scorpion",
+      "wolf"
     ],
     "2": [
-      "ogre"
+      "ogre",
+      "mummy",
+      "skeleton"
     ],
     "3": [
       "scorpion_king",
       "black_cobra",
-      "sand_worm"
+      "sand_worm",
+      "black_knight",
+      "ghost"
     ]
   },
   "ranks": [
@@ -2941,7 +2947,7 @@ html += section("s-2", "2.", "잿불 숲 지역 1~10", `
     <li><b>출전:</b> 홈의 [출전 ▶]을 누르면 현상금 게시판이 열린다. 종이를 골라 읽고 <b>[종이를 떼어 출발]</b>하면 그 지역으로 나간다. 지역 하나는 웨이브 ${R.waves_per_stage}개이고, <b>마지막 웨이브에 현상금 대상이 혼자 나온다</b>.</li>
     <li><b>모든 지역에 현상금:</b> 굵은 이름은 이름 있는 보스, 나머지는 그 지역 몬스터의 <b>우두머리</b>(체력 2배, 공격 1.1배, 몸집 1.35배, 골드 5배)다.</li>
     <li><b>지원 조건:</b> 출전하는 용병의 <b>평균 랭크</b>가 조건 이상이어야 종이를 뗄 수 있다. 약한 신입을 빼고 강한 용병만 보내면 조건을 채울 수 있다.</li>
-    <li><b>승급전:</b> 킹 슬라임과 오우거는 랭크를 올리는 시험이다(<a href="#s-10">10. 랭크와 승급전</a>).</li>
+    <li><b>승급전:</b> 킹 슬라임과 오우거는 랭크를 올리는 시험이다. 다른 대륙에도 같은 등급의 승급전이 있다(<a href="#s-10">10. 랭크와 승급전</a>).</li>
     <li><b>지역 10:</b> 트윈헤드 오우거는 C랭크가 필요하다. C 승급전은 다른 대륙에 있어서, 바깥에서 강해져 돌아와야 한다.</li>
   </ol>
   <div class="table-wrap"><table><thead><tr><th>지역</th><th>현상금 대상</th><th>지원 조건</th><th>승급전</th><th>나오는 몬스터</th></tr></thead><tbody>${regionRows}</tbody></table></div>`);
