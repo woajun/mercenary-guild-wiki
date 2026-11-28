@@ -84,9 +84,9 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <div class="wrap">
   <header>
     <h1>개발 노트</h1>
-    <div class="meta"><span>용병단 키우기 · 노트 20개</span><span>갱신 2026-11-28</span><button id="next-new" type="button" hidden>새 줄 <b></b>개 ↓</button><a href="./">위키</a><a href="./play/">게임</a></div>
+    <div class="meta"><span>용병단 키우기 · 노트 26개</span><span>갱신 2026-11-28</span><button id="next-new" type="button" hidden>새 줄 <b></b>개 ↓</button><a href="./">위키</a><a href="./play/">게임</a></div>
   </header>
-  <nav class="tabs" aria-label="주제"><a class="tab" href="#t-원칙" data-topic="원칙">원칙<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-성장" data-topic="성장">성장<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-랭크" data-topic="랭크">랭크<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-재능" data-topic="재능">재능<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-직업" data-topic="직업">직업<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-용병" data-topic="용병">용병<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-장비" data-topic="장비">장비<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-전투" data-topic="전투">전투<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-콘텐츠" data-topic="콘텐츠">콘텐츠<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-할 일" data-topic="할 일">할 일<i class="dot" aria-hidden="true"></i></a></nav>
+  <nav class="tabs" aria-label="주제"><a class="tab" href="#t-원칙" data-topic="원칙">원칙<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-성장" data-topic="성장">성장<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-랭크" data-topic="랭크">랭크<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-재능" data-topic="재능">재능<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-직업" data-topic="직업">직업<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-용병" data-topic="용병">용병<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-용병시장" data-topic="용병시장">용병시장<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-장비" data-topic="장비">장비<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-전투" data-topic="전투">전투<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-콘텐츠" data-topic="콘텐츠">콘텐츠<i class="dot" aria-hidden="true"></i></a><a class="tab" href="#t-할 일" data-topic="할 일">할 일<i class="dot" aria-hidden="true"></i></a></nav>
 
   
 <section class="group" id="t-원칙" aria-labelledby="h-원칙">
@@ -156,7 +156,7 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 </details>
 <details class="note" id="talent_reveal" data-status="적용" open>
   <summary><span class="title">공개<i class="dot" aria-hidden="true"></i></span></summary>
-  <div class="body"><div class="row">· 첫 용병: 처음부터</div><div class="row">· 시장 용병: 직업 재능만 보임, 나머지는 ? · 룰렛. 영입하면 전부 공개</div></div>
+  <div class="body"><div class="row">· 첫 용병: 처음부터</div><div class="row" data-new="3c260623f6">· 시장 용병: 용병시장 탭 &#x27;재능 보이기&#x27;</div></div>
   
 </details>
 <details class="note" id="talent_race" data-status="적용" open>
@@ -189,7 +189,31 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
   
 <details class="note" id="merc" data-status="적용" open>
   <summary><span class="title">용병·특성<i class="dot" aria-hidden="true"></i></span></summary>
-  <div class="body"><div class="row">· 시장: 신병(0~5, 강화 없음) / 경력자(대륙 레벨·랭크, 성향 강화)</div><div class="row">· 고유 특성 1개, 첫 발동 때 공개 <span class="pending">적용 전</span></div><div class="row">· 겪어서 얻는 특성 (위기 생존 → 잘 죽지 않는) <span class="pending">적용 전</span></div></div>
+  <div class="body"><div class="row">· 고유 특성 1개, 첫 발동 때 공개 <span class="pending">적용 전</span></div><div class="row">· 겪어서 얻는 특성 (위기 생존 → 잘 죽지 않는) <span class="pending">적용 전</span></div></div>
+  
+</details>
+</section>
+<section class="group" id="t-용병시장" aria-labelledby="h-용병시장">
+  <h2 id="h-용병시장">용병시장</h2>
+  
+<details class="note" id="market_open" data-status="적용" open>
+  <summary><span class="title">열림과 후보<i class="dot" aria-hidden="true"></i></span></summary>
+  <div class="body"><div class="row" data-new="7281cbbaaf">· 용병단 첫 E랭크 때 열림</div><div class="row" data-new="7dbac1ca82">· 후보 3명, 지역 클리어하고 돌아오면 새 얼굴</div><div class="row" data-new="1807d819ef">· 새 얼굴 보기 30G</div><div class="row" data-new="d1b660e232">· 정원 처음 5명, 최대 12명</div><div class="row sub" data-new="98e96ae2a5">- 늘리기 300 / 500 / 800 / 1200 / 1700 / 2300 / 3000G</div><div class="row" data-new="5b08fe6bcc">· 정원이 차면 누구와 바꿀지 고름</div></div>
+  
+</details>
+<details class="note" id="market_kind" data-status="적용" open>
+  <summary><span class="title">후보 종류<i class="dot" aria-hidden="true"></i></span></summary>
+  <div class="body"><div class="row" data-new="af2bf0abd9">· 첫 대륙: 숙련도 0~6</div><div class="row" data-new="40ed4ca200">· 둘째 대륙부터 신병 34% / 경력자 66%</div><div class="row sub" data-new="5d1edf1a3f">- 신병: 숙련도 0~5, 강화 없음, 쌈. 영입 후 직접 찍음</div><div class="row sub" data-new="1a9318cd14">- 경력자: 대륙별 숙련도 22~32 / 38~48 / 50~60 / 60~70 / 70~80, 랭크 D~C</div><div class="row sub" data-new="3057d0781e">- 경력자 성향: 공격 / 체력 / 속도 / 스킬 강화를 미리 찍어 옴</div><div class="row" data-new="2daa7040eb">· 무기: 그 대륙에서 열린 무기 중 하나 → 직업이 됨</div><div class="row" data-new="93cd912a5c">· 종족: 인간 85% / 수인족 12% / 엘프 3%</div><div class="row sub" data-new="b677837844">- 첫 대륙 표만 있음, 다른 대륙은 무작위 → 대륙별 표 <span class="ask">결정 필요</span></div></div>
+  
+</details>
+<details class="note" id="market_price" data-status="적용" open>
+  <summary><span class="title">가격<i class="dot" aria-hidden="true"></i></span></summary>
+  <div class="body"><div class="row" data-new="4d440f97a7">· 신병: 100 + 숙련도 × 20</div><div class="row" data-new="7fe6ff5506">· 경력자: 100 × 대륙 번호 + (숙련도 − 그 대륙 최소) × 20</div><div class="row" data-new="7cf3701203">· 종족 배율: 일반 ×1 / 희귀 ×1.5 / 초희귀 ×2.5</div><div class="row" data-new="0fac7b6593">· 직업 재능 배율: 없음·브론즈 ×1 / 실버 ×1.6 / 골드 ×2.5 / 무지개 ×4</div><div class="row" data-new="e31753d25f">· 숨은 재능은 가격에 안 들어감 → 싸게 산 용병이 대박일 수 있음</div></div>
+  
+</details>
+<details class="note" id="market_reveal" data-status="적용" open>
+  <summary><span class="title">재능 보이기<i class="dot" aria-hidden="true"></i></span></summary>
+  <div class="body"><div class="row" data-new="a59aae270f">· 직업 재능만 공개</div><div class="row" data-new="42c61a14a0">· 나머지 재능은 개수만큼 ? (색만 보이는 룰렛 또는 회색 ?)</div><div class="row" data-new="b8f845155e">· 영입하면 전부 공개</div></div>
   
 </details>
 </section>
@@ -205,9 +229,19 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <section class="group" id="t-전투" aria-labelledby="h-전투">
   <h2 id="h-전투">전투</h2>
   
-<details class="note" id="battle" data-status="적용" open>
-  <summary><span class="title">전투<i class="dot" aria-hidden="true"></i></span></summary>
-  <div class="body"><div class="row">· 기절: 지면 강타 1.2~2.0초, 서리 고리 0.8~1.6초</div><div class="row">· 강한 적 저항: 우두머리 ×0.6 / 중보 ×0.45 / 보스 ×0.3</div></div>
+<details class="note" id="battle_status" data-status="적용" open>
+  <summary><span class="title">상태 이상 (지금)<i class="dot" aria-hidden="true"></i></span></summary>
+  <div class="body"><div class="row" data-new="cd75ee82cb">· 기절: 지면 강타 1.2~2.0초 (방패)</div><div class="row" data-new="f3a52a637d">· 얼림: 서리 고리 0.8~1.6초, 기절처럼 멈춤 (스태프)</div><div class="row" data-new="4e0059fa77">· 밀쳐내기: 방패 공격력 ÷ 몬스터 무게만큼 밀림, 가벼우면 멀리</div><div class="row" data-new="b34924ee71">· 물질화: 영체를 5~9초 실체로, 받는 피해 +20% (성물)</div><div class="row" data-new="028e5a821c">· 강한 적 저항 (기절·얼림 시간): 우두머리 ×0.6 / 중보 ×0.45 / 보스 ×0.3</div></div>
+  
+</details>
+<details class="note" id="battle_trait" data-status="적용" open>
+  <summary><span class="title">몬스터 특성<i class="dot" aria-hidden="true"></i></span></summary>
+  <div class="body"><div class="row" data-new="e96b1a1463">· 영체 (망령): 물리 피해 35%만, 마법·물질화 상태엔 정상</div><div class="row" data-new="3872e9b2a8">· 잠복 (모래 웜): 땅속에선 스태프만 50%, 솟아오르면 사격 ×1.5</div><div class="row" data-new="ab7c757417">· 분열 (슬라임·킹 슬라임): 쓰러지면 작은 슬라임으로 나뉨</div></div>
+  
+</details>
+<details class="note" id="battle_element" data-status="적용" open>
+  <summary><span class="title">속성 공격<i class="dot" aria-hidden="true"></i></span></summary>
+  <div class="body"><div class="row" data-new="7ca4f20d87">· 속성 공격 추가 <span class="pending">적용 전</span></div><div class="row sub" data-new="fe9b1cbcbb">- 화상: 몇 초간 지속 피해, 쌓이면 더 아픔</div><div class="row sub" data-new="d20f19dc7b">- 얼음: 느려짐 → 쌓이면 얼림</div><div class="row sub" data-new="77e4d7af15">- 기절: 지금 방식 유지</div><div class="row sub" data-new="9824840fe1">- 투명: 적이 안 보여 못 노림 / 용병이 숨어 안 맞음 중 무엇? <span class="ask">결정 필요</span></div><div class="row" data-new="acd8825e29">· 속성은 무기·스킬·재능 중 어디에 붙나 <span class="ask">결정 필요</span></div><div class="row" data-new="fbc60c716e">· 몬스터 약점·저항 속성 (예: 망령 화상 약함) <span class="ask">결정 필요</span></div><div class="row" data-new="1949cc7ef2">· 화면 표시는 글자 없이 색·아이콘 <span class="pending">적용 전</span></div></div>
   
 </details>
 </section>
