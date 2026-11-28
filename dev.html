@@ -73,7 +73,7 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
   <section aria-labelledby="h-next">
     <h2 id="h-next">다음에 할 것</h2>
     <ol class="next-list"><li class="next"><a href="#talent_rise"><span class="num">1</span>
-<span class="next-t">재능 상승 조건 (지금 + 계획)</span><span class="chip s-진행">진행</span><span class="count">0/3</span></a></li></ol>
+<span class="next-t">재능 상승 조건 (지금 + 계획)</span><span class="chip s-진행">진행</span><span class="count">1/3</span></a></li></ol>
   </section>
   <div class="tools" role="group" aria-label="펼치기">
     <button type="button" data-act="open">모두 펼치기</button>
@@ -84,7 +84,7 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
   <h2 id="h-진행">진행 <small>7 · 지금 하는 중</small></h2>
   
 <details class="note" id="talent_rise" data-status="진행" open>
-  <summary><span class="chip s-진행">진행</span><span class="title">재능 상승 조건 (지금 + 계획)</span><span class="count">0/3</span></summary>
+  <summary><span class="chip s-진행">진행</span><span class="title">재능 상승 조건 (지금 + 계획)</span><span class="count">1/3</span></summary>
   <p class="body">■ 지금 (코드 그대로)
 · 재능은 랭크가 오를 때만 오른다 (_check_promotion → _roll_talent_up).
 · 랭크 한 단계마다, 가진 재능 계열 하나하나가 15% 확률로 한 단계 (TALENT_UP_CHANCE). 무지개(4)가 끝.
@@ -96,11 +96,14 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 · 공격 배율 TALENT_ATK: 없음 0.85 · 브론즈 1.0 · 실버 1.2 · 골드 1.45 · 무지개 1.8.
 · 랭크당 공격 보너스도 재능이 정한다 TALENT_RANK_ATK: 3% · 5% · 8% · 12% · 18% → C랭크(4단계)에서 브론즈 ×1.2, 실버 ×1.58, 골드 ×2.15, 무지개 ×3.1. 격차가 랭크를 올릴수록 커진다 (C에서 무지개가 브론즈의 2.6배).
 
+■ 바꿈 (2026-11-28)
+· 랭크당 보너스를 재능과 상관없이 같게: 공격 +8%, 체력 +10% (TALENT_RANK_ATK·TALENT_RANK_HP). 재능 격차는 기본 배율(브론즈 ×1.0 ~ 무지개 ×1.8)로 고정, 랭크를 올려도 더 벌어지지 않는다.
+
 ■ 계획 (숨은 정 게이지, 기획만)
 · 출전해서 함께 싸울 때만 쌓이는 보이지 않는 &#x27;정&#x27;. 쓰러질 뻔하다 살아남음·보스 마무리·혼자 버팀에서 많이.
 · 재능 상승 확률이 정에 비례해 오르고(천장), 판정은 보스 처치·위기 직후. 오르면 정 초기화.
 · 안전망: 최고 랭크 근처에서 무지개 확정. 화면에 게이지·확률 표시 없음.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>랭크당 보너스를 재능과 상관없이 같게 할지 (격차를 기본 배율 1.8배로 묶기)</li><li class=""><span class="box" aria-hidden="true"></span>숨은 정 게이지 만들기 (hidden_bond 노트)</li><li class=""><span class="box" aria-hidden="true"></span>B·A·S 승급전이 생기면 상승 기회 다시 계산</li></ul>
+  <ul class="todo"><li class="done"><span class="box" aria-hidden="true">✓</span>랭크당 보너스를 재능과 상관없이 같게 할지 (격차를 기본 배율 1.8배로 묶기)</li><li class=""><span class="box" aria-hidden="true"></span>숨은 정 게이지 만들기 (hidden_bond 노트)</li><li class=""><span class="box" aria-hidden="true"></span>B·A·S 승급전이 생기면 상승 기회 다시 계산</li></ul>
 </details>
 <details class="note" id="growth_split" data-status="진행">
   <summary><span class="chip s-진행">진행</span><span class="title">성장 개편: 레벨은 몸, 기술은 쓸수록 + 스킬 슬롯</span><span class="count">6/10</span></summary>
