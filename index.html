@@ -361,7 +361,7 @@ const DATA = {
       "issuer": "오아시스 대상 조합",
       "items": [
         "bronze_shield",
-        "sling"
+        "hunting_bow"
       ],
       "reason": "무역로가 막히면 왕국으로 들어오는 물과 곡식이 끊긴다. 조합이 한 해 이익을 털어 걸었다.",
       "region": 5
@@ -2511,9 +2511,58 @@ const DATA = {
       "era": 0,
       "family": "ranged",
       "from": 11,
+      "id": "wood_bow",
+      "motion": "draw",
+      "name": "나무 활",
+      "outfit": {
+        "colors": {
+          "a": "7a5a3a",
+          "b": "5e4430",
+          "f": "4a3020",
+          "k": "a04a2a",
+          "l": "skin",
+          "w": "7a5a3a"
+        },
+        "head": "headband",
+        "torso": "vest"
+      },
+      "power": 10.0,
+      "projectile": "arrow",
+      "range": 180.0
+    },
+    {
+      "cd": 1.0,
+      "era": 1,
+      "family": "ranged",
+      "id": "hunting_bow",
+      "motion": "draw",
+      "name": "사냥 활",
+      "outfit": {
+        "colors": {
+          "a": "c8b890",
+          "b": "a89870",
+          "c": "b0803a",
+          "f": "6a4a2a",
+          "k": "6a4a2a",
+          "l": "skin",
+          "w": "6a4a2a"
+        },
+        "head": "",
+        "torso": "tunic"
+      },
+      "power": 16.0,
+      "projectile": "arrow",
+      "range": 180.0
+    },
+    {
+      "cd": 1.0,
+      "era": 0,
+      "family": "ranged",
+      "from": 11,
       "id": "stone",
       "motion": "throw",
       "name": "돌",
+      "npc": true,
       "outfit": {
         "colors": {
           "a": "7a5a3a",
@@ -2537,6 +2586,7 @@ const DATA = {
       "id": "sling",
       "motion": "whirl",
       "name": "투석구",
+      "npc": true,
       "outfit": {
         "colors": {
           "a": "c8b890",
