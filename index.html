@@ -2975,7 +2975,7 @@ let nBody = `<p>모든 용병은 똑같은 능력치로 시작하고 이름과 �
 const L = DATA.looks;
 const sw = list => list.map(c => `<span class="sw-item"><i class="swatch" style="background:#${c[1]}"></i>${c[0]}</span>`).join("");
 nBody += section("s-4-1", "4.1.", "외형", `
-  <p>용병마다 머리 모양, 머리 색, 눈 색·크기, 앞머리, 체형, 장신구가 무작위로 정해진다. 머리 색과 눈 색은 각각 ${Math.round(L.rare_chance * 100)}% 확률로 <b>희귀 색</b>이 나오고, 희귀 외형인 용병은 이름 옆에 <b class="rare">✦</b>가 붙는다. 종족 특징(엘프 귀, 수인족 귀·꼬리, 드워프 남성의 수염)은 그 위에 더해진다.</p>
+  <p>용병마다 머리 모양, 머리 색, 눈 색·크기, 앞머리, 체형, 장신구가 무작위로 정해진다. 머리 색과 눈 색은 각각 ${Math.round(L.rare_chance * 100)}% 확률로 <b>희귀 색</b>이 나온다. 겉모습만 다르고 능력이나 재능과는 상관없어서 따로 표시하지 않는다. 종족 특징(엘프 귀, 수인족 귀·꼬리, 드워프 남성의 수염)은 그 위에 더해진다.</p>
   <div class="looks"><img src="img/looks.png" alt="무작위로 만든 용병 24명. 오른쪽 아래 여섯은 희귀 색"></div>
   <div class="table-wrap"><table><tbody>
     <tr><th>머리 모양</th><td>${Object.values(L.styles).map(v => v[0]).join(", ")}</td></tr>
