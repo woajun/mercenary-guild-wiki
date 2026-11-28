@@ -2923,14 +2923,14 @@ function posterCard(id) {
     ${b.weak ? `<div class="p-sec">■ 약점 (${DATA.traits[m.trait].name})</div><p>${b.weak}</p>` : ""}
     <div class="p-sec">■ 보상</div>
     <div class="p-reward"><b>현상금 ${b.gold.toLocaleString()} G</b>${items}<span class="p-item">망각의 물약</span></div>
-    <div class="p-note">재의뢰: ${(Math.floor(b.gold / 2)).toLocaleString()} G + 무기 하나</div>
+    <div class="p-note">재의뢰: ${(Math.floor(b.gold / 2)).toLocaleString()} G</div>
   </article>`;
 }
 toc.push({ id: "s-3", num: "3.", title: "현상금", sub: false });
 let bBody = `<p>홈의 [출전 ▶]을 누르면 게시판에 붙은 현상금 종이가 보인다. 그 지역에 이르기 전에는 회색 '소문' 종이에 실루엣만 보인다. 종이를 눌러 읽고 <b>[종이를 떼어 출발]</b>하면 종이가 게시판에서 떨어져 나가며 그 보스 지역으로 사냥을 나간다.</p>
   <ol class="rules">
     <li><b>첫 사냥:</b> 현상금 전액 + 확정 무기 전부 + 망각의 물약 1개. 종이에는 '처치 완료' 도장이 찍힌다.</li>
-    <li><b>재의뢰:</b> 다시 나타났다는 소문에 종이가 또 붙는다. 현상금 절반 + 무기 하나.</li>
+    <li><b>재의뢰:</b> 다시 나타났다는 소문에 종이가 또 붙는다. 현상금 절반 (무기 없음).</li>
     <li><b>실패·후퇴:</b> 종이는 다시 게시판에 붙는다. 숙련도는 그대로 남는다.</li>
     <li>황금 모래 왕국 5지역처럼 한 자리에 보스가 여럿이면 종이도 여러 장이다. 떼어 간 종이의 보스가 나온다.</li>
     <li><b>약점:</b> 특성이 있는 보스(<a href="#s-6-0">6.0 특성과 카운터</a>)는 종이에 약점이 적혀 있다. 무기는 홈에서만 바꿀 수 있으니, 읽고 파티와 무기·강화를 맞춘 뒤 떼어 가자.</li>
