@@ -496,6 +496,30 @@
       ]
     },
     {
+      "atk": 0.9,
+      "cd": 1.0,
+      "desc": "대륙 사이 길목에서 마차를 노리는 도적. 몽둥이를 들고 덤빈다.",
+      "era": -1,
+      "eye": "2a1a10",
+      "gold": 6,
+      "hair": "2a1e14",
+      "hair_style": "buzz",
+      "hp": 0.9,
+      "id": "bandit",
+      "motion": "bonk",
+      "name": "도적",
+      "race": "human",
+      "range": 0.0,
+      "rank": "normal",
+      "skin": "c8946a",
+      "speed": 70.0,
+      "stages": [
+        0,
+        0
+      ],
+      "weapon": "wood_club"
+    },
+    {
       "atk": 1.0,
       "cd": 1.0,
       "desc": "숲에 사는 작은 초록 도적. 돌창을 들고 무리 지어 몰려온다.",
