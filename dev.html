@@ -73,7 +73,7 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
   <section aria-labelledby="h-next">
     <h2 id="h-next">다음에 할 것</h2>
     <ol class="next-list"><li class="next"><a href="#growth_split"><span class="num">1</span>
-<span class="next-t">성장 개편: 레벨은 몸, 기술은 쓸수록 + 자주 쓸 기술</span><span class="chip s-기획">기획</span><span class="count">0/8</span></a></li></ol>
+<span class="next-t">성장 개편: 레벨은 몸, 기술은 쓸수록 + 자주 쓸 기술</span><span class="chip s-진행">진행</span><span class="count">3/8</span></a></li></ol>
   </section>
   <div class="tools" role="group" aria-label="펼치기">
     <button type="button" data-act="open">모두 펼치기</button>
@@ -81,8 +81,13 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
   </div>
   
 <section class="group" aria-labelledby="h-진행">
-  <h2 id="h-진행">진행 <small>5 · 지금 하는 중</small></h2>
+  <h2 id="h-진행">진행 <small>6 · 지금 하는 중</small></h2>
   
+<details class="note" id="growth_split" data-status="진행" open>
+  <summary><span class="chip s-진행">진행</span><span class="title">성장 개편: 레벨은 몸, 기술은 쓸수록 + 자주 쓸 기술</span><span class="count">3/8</span></summary>
+  <p class="body">결정 (2026-11-28): 레벨과 기술 레벨을 분리한다 (B안). 레벨업 3장 선택지에는 몸 능력치(공격력·공격 속도·체력, 나중에 특성)만 — 계열과 상관없이 용병 몸에 쌓여 무기·직업을 바꿔도 버려지지 않는다. 기술(일격·회전베기·지면 강타·물질화…)은 쓸수록 오른다: 그 무기로 싸운 경험 그대로, 무기를 바꿔도 보관. 이유: &#x27;검사 30에서 사제로 바꾸면 찍은 게 잘못 찍은 게 된다&#x27;를 없애고, 레벨업 선택을 단순하게(여자친구 플레이), 애착(&#x27;이 기술 많이 썼더니 강해졌다&#x27;). 더해서 &#x27;자주 쓸 기술&#x27; (2026-11-28, 코딩식 규칙 대신 단순하게): 용병 상세에 칸 두 개 — 1. 회전베기 / 2. (선택 안 함). 고른 기술을 먼저·자주 쓰고(쿨타임이 차면 우선, 닿는 적이 없어도 기다렸다 쓰기 등), 많이 쓰니 그 기술이 빨리 자란다. 고르지 않으면 지금처럼 알아서. 글 없이 기술 아이콘을 눌러 고른다. 1단계 적용 (2026-11-28): 능력치는 perks[&#x27;body&#x27;] (GameData.BODY, STAT_IDS) — 예전 저장은 계열별 능력치를 합산. 레벨업 선택지 = 능력치 3개뿐 (그래서 지금은 늘 셋 다 나온다; 특성이 생기면 다시 무작위 3장). 기술·특성은 랭크로 배움: 일격·지면 강타·물질화 E, 회전베기·밀쳐내기 D (들고 있는 계열 기준, 무기를 바꾸면 그 계열 기술도 배움). 쓸 때마다 사용량 += 그 기술 쿨타임(초), 밀쳐내기는 한 번에 4; 다음 레벨까지 SKILL_XP_NEED [90, 200, 360, 600]. 오르면 &#x27;Lv.n!&#x27; 배너. 실험실 전투에서는 오르지 않는다. 자동 플레이: 지면 강타가 지역 3에 배워 지역 8쯤 Lv.2.</p>
+  <ul class="todo"><li class="done"><span class="box" aria-hidden="true">✓</span>기술 숙련 규칙: 쓸 때마다 기술 경험치, 쿨타임 긴 기술 보정</li><li class="done"><span class="box" aria-hidden="true">✓</span>레벨업 선택지에서 기술 빼기 (몸 능력치만), 기존 저장의 기술 레벨 유지</li><li class="done"><span class="box" aria-hidden="true">✓</span>강화(능력치)를 계열 공통으로 합치기 — 기존 저장은 계열별 레벨 합산</li><li class=""><span class="box" aria-hidden="true"></span>자주 쓸 기술 칸 2개 (용병 상세, 아이콘으로 고르기)와 우선 사용 규칙</li><li class=""><span class="box" aria-hidden="true"></span>계열마다 기술 2개 이상 (사격·스태프는 아직 없음)</li><li class=""><span class="box" aria-hidden="true"></span>돌파 효과(강화 총량 30·60·90, 비율이 효과 모양)와 연결</li><li class=""><span class="box" aria-hidden="true"></span>직업 카드 기획과 합치기</li><li class=""><span class="box" aria-hidden="true"></span>홈 카드의 기술 아이콘을 &#x27;자주 쓸 기술&#x27; 순서로 (지금은 배운 기술 전부)</li></ul>
+</details>
 <details class="note" id="lab" data-status="진행">
   <summary><span class="chip s-진행">진행</span><span class="title">개발자 실험실</span><span class="count">1/5</span></summary>
   <p class="body">사전 → 개발 탭 맨 위 [실험실]. 용병(무기·재능·랭크·숙련도·강화/스킬 레벨, 최대 4명, 위가 맨 앞)과 몬스터(종류·마릿수·우두머리, 몬스터 지역 1~30)를 꾸려 바로 싸운다. 진짜 용병단은 잠시 빼 두고, 골드·경험치·사전 기록·저장은 건드리지 않는다. 후퇴 버튼 = 바로 중단. 끝나면 용병마다 준 피해·초당 피해·받은 피해·치유·처치를 보여 주고 [다시] [설정] [나가기]. 설정은 user://lab.json에 남는다 (scripts/lab.gd).</p>
@@ -120,13 +125,8 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 </details>
 </section>
 <section class="group" aria-labelledby="h-기획">
-  <h2 id="h-기획">기획 <small>12 · 정리만, 아직 안 만듦</small></h2>
+  <h2 id="h-기획">기획 <small>11 · 정리만, 아직 안 만듦</small></h2>
   
-<details class="note" id="growth_split" data-status="기획" open>
-  <summary><span class="chip s-기획">기획</span><span class="title">성장 개편: 레벨은 몸, 기술은 쓸수록 + 자주 쓸 기술</span><span class="count">0/8</span></summary>
-  <p class="body">결정 (2026-11-28): 레벨과 기술 레벨을 분리한다 (B안). 레벨업 3장 선택지에는 몸 능력치(공격력·공격 속도·체력, 나중에 특성)만 — 계열과 상관없이 용병 몸에 쌓여 무기·직업을 바꿔도 버려지지 않는다. 기술(일격·회전베기·지면 강타·물질화…)은 쓸수록 오른다: 그 무기로 싸운 경험 그대로, 무기를 바꿔도 보관. 이유: &#x27;검사 30에서 사제로 바꾸면 찍은 게 잘못 찍은 게 된다&#x27;를 없애고, 레벨업 선택을 단순하게(여자친구 플레이), 애착(&#x27;이 기술 많이 썼더니 강해졌다&#x27;). 더해서 &#x27;자주 쓸 기술&#x27; (2026-11-28, 코딩식 규칙 대신 단순하게): 용병 상세에 칸 두 개 — 1. 회전베기 / 2. (선택 안 함). 고른 기술을 먼저·자주 쓰고(쿨타임이 차면 우선, 닿는 적이 없어도 기다렸다 쓰기 등), 많이 쓰니 그 기술이 빨리 자란다. 고르지 않으면 지금처럼 알아서. 글 없이 기술 아이콘을 눌러 고른다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>기술 숙련 규칙: 쓸 때마다 기술 경험치, 쿨타임 긴 기술 보정</li><li class=""><span class="box" aria-hidden="true"></span>레벨업 선택지에서 기술 빼기 (몸 능력치만), 기존 저장의 기술 레벨 유지</li><li class=""><span class="box" aria-hidden="true"></span>강화(능력치)를 계열 공통으로 합치기 — 기존 저장은 계열별 레벨 합산</li><li class=""><span class="box" aria-hidden="true"></span>자주 쓸 기술 칸 2개 (용병 상세, 아이콘으로 고르기)와 우선 사용 규칙</li><li class=""><span class="box" aria-hidden="true"></span>계열마다 기술 2개 이상 (사격·스태프는 아직 없음)</li><li class=""><span class="box" aria-hidden="true"></span>돌파 효과(강화 총량 30·60·90, 비율이 효과 모양)와 연결</li><li class=""><span class="box" aria-hidden="true"></span>직업 카드 기획과 합치기</li><li class=""><span class="box" aria-hidden="true"></span>홈 카드의 기술 아이콘을 &#x27;자주 쓸 기술&#x27; 순서로 (지금은 배운 기술 전부)</li></ul>
-</details>
 <details class="note" id="unique_traits" data-status="기획">
   <summary><span class="chip s-기획">기획</span><span class="title">용병별 고유 특성</span><span class="count">0/4</span></summary>
   <p class="body">용병마다 고유 특성을 딱 1개 갖고 태어난다 (없는 운 나쁜 용병 없음, 특성끼리 좋고 나쁨이 아니라 방향이 다르게). 처음엔 숨어 있다가 전투에서 처음 발동하는 순간 아이콘이 생긴다. 사용자 안: 불사신(치명 피해를 50% 확률로 버팀), 유아독존(혼자 출전 시 피해·체력 2배), 수호자(나 말고 1명만 남으면 받는 피해 -50%, 곱연산), 눈이 좋은(치명타 +20%). 검토: 불사신은 한 웨이브(또는 전투)에 한 번만 — 치유와 붙으면 안 죽음. 유아독존은 혼자면 경험치도 안 나눠서 1.5배부터 실험. &#x27;수호자&#x27;는 방패 직업 이름과 겹침 → 배수진/최후의 방패, 조건은 &#x27;동료가 쓰러질 때마다 받는 피해 감소&#x27;가 더 자주 보이고 극적. 눈이 좋은은 기본 치명 5%라 +10%가 적당. 겪어서 얻는 특성은 이 위에 더해진다.</p>
