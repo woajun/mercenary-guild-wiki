@@ -1676,10 +1676,6 @@ const DATA = {
       "name": "다크엘프"
     }
   ],
-  "rank_bonus": {
-    "atk": 0.05,
-    "hp": 0.1
-  },
   "rank_rewards": {
     "0": {
       "gold": 50,
@@ -1776,6 +1772,108 @@ const DATA = {
     "waves_per_stage": 3
   },
   "start_potions": 1,
+  "talent": {
+    "atk": [
+      0.85,
+      1.0,
+      1.2,
+      1.45,
+      1.8
+    ],
+    "names": [
+      "없음",
+      "브론즈",
+      "실버",
+      "골드",
+      "무지개"
+    ],
+    "races": {
+      "beast": {
+        "count": [
+          50,
+          38,
+          10,
+          2
+        ],
+        "fav": [
+          "sword",
+          "shield"
+        ],
+        "fav_tier": [
+          30,
+          50,
+          17,
+          3
+        ],
+        "tier": [
+          70,
+          25,
+          4.5,
+          0.5
+        ]
+      },
+      "elf": {
+        "count": [
+          45,
+          40,
+          12,
+          3
+        ],
+        "fav": [
+          "ranged",
+          "staff"
+        ],
+        "fav_tier": [
+          5,
+          65,
+          24,
+          6
+        ],
+        "tier": [
+          55,
+          35,
+          8,
+          2
+        ]
+      },
+      "human": {
+        "count": [
+          55,
+          35,
+          9,
+          1
+        ],
+        "fav": [],
+        "fav_tier": [
+          60,
+          33,
+          6,
+          1
+        ],
+        "tier": [
+          60,
+          33,
+          6,
+          1
+        ]
+      }
+    },
+    "rank_atk": [
+      0.03,
+      0.05,
+      0.08,
+      0.12,
+      0.18
+    ],
+    "rank_hp": [
+      0.06,
+      0.08,
+      0.12,
+      0.16,
+      0.22
+    ],
+    "up": 0.15
+  },
   "training_regions": 3,
   "traits": {
     "burrow": {
@@ -3007,7 +3105,7 @@ const trialText = i => (DATA.rank_trials[i] || []).map(id => mName[id] ? `<a hre
 html += section("s-10", "10.", "랭크와 승급전", `
   <p>무기로 공격하거나, 맞아 내거나(방패), 치유하거나, 지역을 클리어하면 들고 있는 무기 계열에 숙련도가 쌓인다. 공격력은 <b>무기 기본 공격력 × (1 + 0.02 × 숙련도)</b>라서 숙련도 100이면 3배가 된다.</p>
   <p>직업은 숙련도가 가장 높은 계열로 정해진다. 숙련도 1이 되면 첫 직업과 함께 <b>F랭크</b>가 되고, 그 위 랭크는 <b>숙련도와 상관없이 승급전</b>으로만 오른다. 승급전은 그 대상을 잡을 때 <b>출전해 있던 용병만</b> 통과하고, 통과하면 바로 그 랭크가 된다.</p>
-  <p>랭크가 오를 때마다 그 용병의 <b>기본 체력 +${Math.round(DATA.rank_bonus.hp * 100)}%, 공격 +${Math.round(DATA.rank_bonus.atk * 100)}%</b>가 쌓인다. 용병단에서 처음 그 랭크가 나오면 한 번 <b>랭크업 보상</b>을 받고 기능이 하나씩 열린다.</p>
+  <p>랭크가 오를 때마다 그 용병의 체력과 공격이 오른다. 랭크 하나가 주는 크기는 <b>들고 있는 무기 계열의 재능</b>이 정한다: 랭크당 공격 ${DATA.talent.rank_atk.map((v, i) => DATA.talent.names[i] + " +" + Math.round(v * 100) + "%").join(", ")}. 재능 자체도 공격에 ${DATA.talent.atk.map((v, i) => DATA.talent.names[i] + " ×" + v).join(", ")}로 곱해진다. 재능은 영입할 때는 ?이고 F랭크가 되면 공개되며, 랭크가 오를 때마다 재능마다 ${Math.round(DATA.talent.up * 100)}% 확률로 한 단계 오른다. 용병단에서 처음 그 랭크가 나오면 한 번 <b>랭크업 보상</b>을 받고 기능이 하나씩 열린다.</p>
   <div class="table-wrap"><table><thead><tr><th>랭크</th><th>오르는 방법</th><th>용병단 첫 달성 보상</th></tr></thead><tbody>
     <tr><th><span class="rank-badge" style="color:#8a8578">−</span> 직업 없음</th><td>숙련도 0</td><td></td></tr>
     ${DATA.ranks.slice(0, 4).map((r, i) => `<tr><th><span class="rank-badge" style="color:#${r[2]}">${r[0]}</span> ${r[0]}랭크</th><td>${i === 0 ? "숙련도 1 (첫 직업)" : "승급전: " + trialText(i)}</td><td>${rewardText(i)}</td></tr>`).join("")}
