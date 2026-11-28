@@ -68,7 +68,7 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <div class="wrap">
   <header>
     <h1>개발 노트</h1>
-    <div class="meta"><span>용병단 키우기 · 노트 30개</span><span>갱신 2026-11-28</span><a href="./">위키</a><a href="./play/">게임</a></div>
+    <div class="meta"><span>용병단 키우기 · 노트 31개</span><span>갱신 2026-11-28</span><a href="./">위키</a><a href="./play/">게임</a></div>
   </header>
   <section aria-labelledby="h-next">
     <h2 id="h-next">다음에 할 것</h2>
@@ -186,8 +186,13 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 </details>
 </section>
 <section class="group" aria-labelledby="h-적용">
-  <h2 id="h-적용">적용 <small>13 · 게임에 들어감</small></h2>
+  <h2 id="h-적용">적용 <small>14 · 게임에 들어감</small></h2>
   
+<details class="note" id="range_cells" data-status="적용">
+  <summary><span class="chip s-적용">적용</span><span class="title">사거리를 칸 단위로</span></summary>
+  <p class="body">1칸 = 용병 사이 간격(GameData.CELL 30). 무기 range를 칸의 배수로 맞췄다: 방패 1, 검·몽둥이·도끼·단검·낫·망치 2, 창·총검 3, 지팡이·부적 5~6, 돌·투석구 6, 활·총 7, 레이저 라이플 8. 규칙: N번째 자리의 용병은 사거리 N칸 이상이면 맨 앞 적에게 닿는다. 스킬 범위도 칸으로 (일격·지면 강타 4칸, 회전베기 2칸, 물질화 6칸). 화면 표시: 무기 고르기 칸 오른쪽 아래 화살표+숫자, 상세·가방·사전은 &#x27;N칸&#x27;. 닿는지 표시(점)는 그리지 않는다.</p>
+  
+</details>
 <details class="note" id="rank_skills" data-status="적용">
   <summary><span class="chip s-적용">적용</span><span class="title">랭크로 배우는 스킬</span><span class="count">0/1</span></summary>
   <p class="body">근접 스킬 일격은 E랭크, 회전베기는 D랭크가 되면 Lv.1을 배운다 (PERKS의 rank). 배우기 전에는 강화 선택지에 나오지 않고, 배운 뒤부터 Lv.2~ 강화로 나온다. 예전 저장에서 이미 그 랭크면 불러올 때 배운 상태로.</p>

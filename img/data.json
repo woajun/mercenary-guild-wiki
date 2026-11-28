@@ -1845,7 +1845,7 @@
         "torso": "bare_strap"
       },
       "power": 11.0,
-      "range": 52.0
+      "range": 60.0
     },
     {
       "cd": 0.6,
@@ -1870,7 +1870,7 @@
         "torso": "bare_strap"
       },
       "power": 9.0,
-      "range": 50.0
+      "range": 60.0
     },
     {
       "cd": 1.0,
@@ -1896,7 +1896,7 @@
         "torso": "bare_strap"
       },
       "power": 13.0,
-      "range": 62.0
+      "range": 90.0
     },
     {
       "cd": 0.42,
@@ -1922,7 +1922,7 @@
         "torso": "bare_strap"
       },
       "power": 7.0,
-      "range": 46.0
+      "range": 60.0
     },
     {
       "cd": 0.9,
@@ -1947,7 +1947,7 @@
         "torso": "bare_strap"
       },
       "power": 14.0,
-      "range": 55.0
+      "range": 60.0
     },
     {
       "aoe": 14.0,
@@ -1973,7 +1973,7 @@
         "torso": "bare_strap"
       },
       "power": 15.0,
-      "range": 64.0
+      "range": 60.0
     },
     {
       "aoe": 18.0,
@@ -1999,7 +1999,7 @@
         "torso": "bare_strap"
       },
       "power": 24.0,
-      "range": 56.0
+      "range": 60.0
     },
     {
       "cd": 0.9,
@@ -2022,7 +2022,7 @@
         "torso": "armor"
       },
       "power": 22.0,
-      "range": 55.0
+      "range": 60.0
     },
     {
       "aoe": 22.0,
@@ -2046,7 +2046,7 @@
         "torso": "tabard"
       },
       "power": 34.0,
-      "range": 58.0
+      "range": 60.0
     },
     {
       "cd": 0.75,
@@ -2069,7 +2069,7 @@
         "torso": "tabard"
       },
       "power": 27.0,
-      "range": 55.0
+      "range": 60.0
     },
     {
       "cd": 0.45,
@@ -2092,7 +2092,7 @@
         "torso": "tabard"
       },
       "power": 15.0,
-      "range": 50.0
+      "range": 60.0
     },
     {
       "cd": 0.9,
@@ -2116,7 +2116,7 @@
         "torso": "uniform"
       },
       "power": 36.0,
-      "range": 64.0
+      "range": 90.0
     },
     {
       "cd": 0.8,
@@ -2139,7 +2139,7 @@
         "torso": "suit"
       },
       "power": 52.0,
-      "range": 58.0
+      "range": 60.0
     },
     {
       "cd": 1.0,
@@ -2163,7 +2163,7 @@
       },
       "power": 10.0,
       "projectile": "stone",
-      "range": 170.0
+      "range": 180.0
     },
     {
       "cd": 1.0,
@@ -2211,7 +2211,7 @@
       },
       "power": 24.0,
       "projectile": "arrow",
-      "range": 200.0
+      "range": 210.0
     },
     {
       "cd": 1.0,
@@ -2236,7 +2236,7 @@
       },
       "power": 30.0,
       "projectile": "bullet",
-      "range": 220.0
+      "range": 210.0
     },
     {
       "cd": 0.9,
@@ -2286,7 +2286,7 @@
       },
       "power": 11.0,
       "projectile": "magic",
-      "range": 160.0
+      "range": 150.0
     },
     {
       "aoe": 32.0,
@@ -2311,7 +2311,7 @@
       },
       "power": 16.0,
       "projectile": "magic",
-      "range": 165.0
+      "range": 150.0
     },
     {
       "aoe": 36.0,
@@ -2337,7 +2337,7 @@
       },
       "power": 23.0,
       "projectile": "magic",
-      "range": 170.0
+      "range": 180.0
     },
     {
       "aoe": 42.0,
@@ -2363,7 +2363,7 @@
       },
       "power": 31.0,
       "projectile": "flask",
-      "range": 175.0
+      "range": 180.0
     },
     {
       "aoe": 46.0,
@@ -2388,7 +2388,7 @@
       },
       "power": 42.0,
       "projectile": "plasma",
-      "range": 185.0
+      "range": 180.0
     },
     {
       "cd": 1.5,
@@ -2413,7 +2413,7 @@
       },
       "power": 10.0,
       "projectile": "magic",
-      "range": 160.0
+      "range": 150.0
     },
     {
       "cd": 1.5,
@@ -2437,7 +2437,7 @@
       },
       "power": 14.0,
       "projectile": "magic",
-      "range": 160.0
+      "range": 150.0
     },
     {
       "cd": 1.3,
@@ -2461,7 +2461,7 @@
       },
       "power": 19.0,
       "projectile": "magic",
-      "range": 165.0
+      "range": 150.0
     },
     {
       "cd": 1.6,
@@ -2485,7 +2485,7 @@
       },
       "power": 21.0,
       "projectile": "magic",
-      "range": 165.0
+      "range": 150.0
     },
     {
       "cd": 1.5,
@@ -2509,7 +2509,7 @@
       },
       "power": 26.0,
       "projectile": "magic",
-      "range": 170.0
+      "range": 180.0
     },
     {
       "cd": 1.3,
