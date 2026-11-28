@@ -289,7 +289,7 @@ document.addEventListener('click', e => {
   const row = b.closest('.row'), card = b.closest('details.note');
   const line = row ? row.querySelector('.txt').textContent.trim() : '(카드 전체)';
   const title = '[질문] ' + card.dataset.title + (row ? ': ' + line.replace(/^[·\-]\s*/, '').slice(0, 40) : '');
-  const body = '> ' + line + '\n\n(여기에 질문)\n\n---\n카드: ' + card.dataset.title + '\n<!-- row:' + row.dataset.h + ' card:' + card.id + ' -->\n' + location.origin + location.pathname + '#' + card.id;
+  const body = '> ' + line + '\n\n(여기에 질문)\n\n---\n카드: ' + card.dataset.title + '\n<!-- row:' + (row ? row.dataset.h : 'card') + ' card:' + card.id + ' -->\n' + location.origin + location.pathname + '#' + card.id;
   window.open('https://github.com/' + REPO + '/issues/new?title=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(body), '_blank');
 }, true);
 fetch('https://api.github.com/repos/' + REPO + '/issues?state=open&per_page=100').then(r => r.ok ? r.json() : []).then(list => {
