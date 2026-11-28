@@ -77,7 +77,7 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
   <section aria-labelledby="h-next">
     <h2 id="h-next">다음에 할 것</h2>
     <ol class="next-list"><li class="next"><a href="#next_talent"><span class="num">1</span>
-<span class="next-t">재능 성장 보장 (숨은 정 게이지)</span><span class="chip s-기획">기획</span><span class="count">0/4</span></a></li><li class="next"><a href="#next_rankup"><span class="num">2</span>
+<span class="next-t">재능 성장 개편 (기획)</span><span class="chip s-기획">기획</span><span class="count">0/5</span></a></li><li class="next"><a href="#next_rankup"><span class="num">2</span>
 <span class="next-t">랭크업 방식 재검토</span><span class="chip s-기획">기획</span><span class="count">0/1</span></a></li><li class="next"><a href="#next_traits"><span class="num">3</span>
 <span class="next-t">용병 특성</span><span class="chip s-기획">기획</span><span class="count">0/3</span></a></li></ol>
   </section>
@@ -137,11 +137,16 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
   
 </details>
 <details class="note" id="next_talent" data-status="기획" open>
-  <summary><span class="chip s-기획">기획</span><span class="title">재능 성장 보장 (숨은 정 게이지)</span><span class="count">0/4</span></summary>
-  <p class="body">· 현재: 랭크업 때 15% 확률만 → C까지 브론즈가 무지개 될 확률 0.3%
-· 안: 출전·위기 극복·보스 마무리로 숨은 &#x27;정&#x27; 누적 → 재능 상승 확률 증가, 보스 처치·위기 직후 판정
-· 안전망: 최고 랭크 근처 무지개 확정. 화면 표시 없음</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>정 값 저장·누적 규칙</li><li class=""><span class="box" aria-hidden="true"></span>확률 곡선·판정 시점</li><li class=""><span class="box" aria-hidden="true"></span>재능 각성 연출</li><li class=""><span class="box" aria-hidden="true"></span>최고 랭크 안전망</li></ul>
+  <summary><span class="chip s-기획">기획</span><span class="title">재능 성장 개편 (기획)</span><span class="count">0/5</span></summary>
+  <p class="body">· 보조 효과 여러 개: 실버 이상 재능은 들고 있지 않아도 전부 동시에 보조 효과 (보조 1개 고르기 없앰)
+· 재능은 쓸수록 자람: 그 계열 무기로 싸우면 계열별 숨은 경험 누적 → 차면 한 단계
+  - 판정은 보스 처치·위기 극복 직후 (&quot;재능이 깨어났다&quot;)
+  - 진행도 표시 없음, 오를 때만 &#x27;재능 상승!&#x27;
+· 재능 발견: 재능 0인 계열도 오래 쓰면 브론즈 생김
+· 루프: 다른 무기 써 보기 = 그 재능 성장 + 보조 효과 확보 → 무기 바꾸기가 손해가 아닌 투자
+· 안전망: 최고 랭크 근처 무지개 확정 (숨김)
+· 승급 때 15% 상승은 없애거나 축소</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>보조 효과 여러 개 적용</li><li class=""><span class="box" aria-hidden="true"></span>계열별 숨은 재능 경험·필요량</li><li class=""><span class="box" aria-hidden="true"></span>판정 시점·각성 연출</li><li class=""><span class="box" aria-hidden="true"></span>재능 발견(0→브론즈) 조건</li><li class=""><span class="box" aria-hidden="true"></span>승급 15% 상승 정리</li></ul>
 </details>
 </section>
 <section class="group" id="t-성장" aria-labelledby="h-성장">
