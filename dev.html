@@ -68,7 +68,7 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <div class="wrap">
   <header>
     <h1>개발 노트</h1>
-    <div class="meta"><span>용병단 키우기 · 노트 48개</span><span>갱신 2026-11-28</span><a href="./">위키</a><a href="./play/">게임</a></div>
+    <div class="meta"><span>용병단 키우기 · 노트 49개</span><span>갱신 2026-11-28</span><a href="./">위키</a><a href="./play/">게임</a></div>
   </header>
   <section aria-labelledby="h-next">
     <h2 id="h-next">다음에 할 것</h2>
@@ -189,8 +189,13 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 </details>
 </section>
 <section class="group" aria-labelledby="h-적용">
-  <h2 id="h-적용">적용 <small>30 · 게임에 들어감</small></h2>
+  <h2 id="h-적용">적용 <small>31 · 게임에 들어감</small></h2>
   
+<details class="note" id="stun_tune" data-status="적용">
+  <summary><span class="chip s-적용">적용</span><span class="title">기절 짧게, 강한 적은 더 짧게</span></summary>
+  <p class="body">지면 강타 기절 2.5~4.0초 → 1.2~2.0초, 서리 고리 빙결 1.5~2.7초 → 0.8~1.6초. 강한 적 저항(GameData.STUN_RESIST): 일반 ×1, 우두머리 ×0.6, 중간 보스 ×0.45, 보스 ×0.3 — 예: 지면 강타 Lv.1이 보스에게는 0.36초.</p>
+  
+</details>
 <details class="note" id="bows" data-status="적용">
   <summary><span class="chip s-적용">적용</span><span class="title">사격은 활부터 (돌·투석구 없앰)</span><span class="count">0/1</span></summary>
   <p class="body">용병 무기에서 돌·투석구를 빼고 나무 활(원시, 돌 자리)·사냥 활(고대, 투석구 자리)로. 돌·투석구는 투석 고블린·적군 투석병 그림용 몬스터 전용 무기(npc)로만 남아 보상·시장·사전·실험실·위키에 안 나온다 (GameData.player_weapons, weapon_open). 예전 저장의 돌·투석구는 불러올 때 활로 (WEAPON_RENAMES). 전갈왕 보상 투석구 → 사냥 활. 같이: 전투 중 카드 기술 쿨타임을 시계방향으로 걷히는 어두운 부채꼴로.</p>
