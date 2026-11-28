@@ -68,6 +68,7 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 .todo li.done { color: var(--muted); text-decoration: line-through; }
 .todo li.done .box { border-color: var(--s-done); }
 .tabs { display: flex; gap: 6px; flex-wrap: wrap; position: sticky; top: 0; background: var(--bg); padding: 8px 0; z-index: 2; }
+@media (max-width: 600px) { .tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .tabs::-webkit-scrollbar { display: none; } .tab { flex: none; } }
 .tab { font-size: 14px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); }
 .tab:hover { background: var(--panel-2); }
 /* 질문: 줄 오른쪽 ? → GitHub 이슈 작성. 열린 질문이 있으면 말풍선 */
