@@ -68,12 +68,14 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
 <div class="wrap">
   <header>
     <h1>개발 노트</h1>
-    <div class="meta"><span>용병단 키우기 · 노트 51개</span><span>갱신 2026-11-28</span><a href="./">위키</a><a href="./play/">게임</a></div>
+    <div class="meta"><span>용병단 키우기 · 노트 11개</span><span>갱신 2026-11-28</span><a href="./">위키</a><a href="./play/">게임</a></div>
   </header>
   <section aria-labelledby="h-next">
     <h2 id="h-next">다음에 할 것</h2>
-    <ol class="next-list"><li class="next"><a href="#talent_rise"><span class="num">1</span>
-<span class="next-t">재능 상승 조건 (지금 + 계획)</span><span class="chip s-진행">진행</span><span class="count">1/3</span></a></li></ol>
+    <ol class="next-list"><li class="next"><a href="#next_talent"><span class="num">1</span>
+<span class="next-t">재능 성장 보장 (숨은 정 게이지)</span><span class="chip s-기획">기획</span><span class="count">0/4</span></a></li><li class="next"><a href="#next_rankup"><span class="num">2</span>
+<span class="next-t">랭크업 방식 재검토</span><span class="chip s-기획">기획</span><span class="count">0/1</span></a></li><li class="next"><a href="#next_traits"><span class="num">3</span>
+<span class="next-t">용병 특성</span><span class="chip s-기획">기획</span><span class="count">0/3</span></a></li></ol>
   </section>
   <div class="tools" role="group" aria-label="펼치기">
     <button type="button" data-act="open">모두 펼치기</button>
@@ -81,296 +83,96 @@ h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); 
   </div>
   
 <section class="group" aria-labelledby="h-진행">
-  <h2 id="h-진행">진행 <small>7 · 지금 하는 중</small></h2>
+  <h2 id="h-진행">진행 <small>1 · 지금 하는 중</small></h2>
   
-<details class="note" id="talent_rise" data-status="진행" open>
-  <summary><span class="chip s-진행">진행</span><span class="title">재능 상승 조건 (지금 + 계획)</span><span class="count">1/3</span></summary>
-  <p class="body">■ 지금 (코드 그대로)
-· 재능은 랭크가 오를 때만 오른다 (_check_promotion → _roll_talent_up).
-· 랭크 한 단계마다, 가진 재능 계열 하나하나가 15% 확률로 한 단계 (TALENT_UP_CHANCE). 무지개(4)가 끝.
-· 언랭 → F는 제외 (F → E, E → D, D → C 승급 때만). 지금 랭크는 C까지라 한 계열에 기회 3번.
-· 없는 계열(재능 0)은 생기지 않는다. 오르면 &#x27;재능 상승!&#x27; 배너 + 창.
-· C까지 무지개가 될 확률: 골드 시작 약 39%, 실버 약 6%, 브론즈 약 0.3%. 운에 달려 있어 &#x27;끝까지 키우면 최강&#x27; 원칙과 어긋난다.
-
-■ 배율 (참고)
-· 공격 배율 TALENT_ATK: 없음 0.85 · 브론즈 1.0 · 실버 1.2 · 골드 1.45 · 무지개 1.8.
-· 랭크당 공격 보너스도 재능이 정한다 TALENT_RANK_ATK: 3% · 5% · 8% · 12% · 18% → C랭크(4단계)에서 브론즈 ×1.2, 실버 ×1.58, 골드 ×2.15, 무지개 ×3.1. 격차가 랭크를 올릴수록 커진다 (C에서 무지개가 브론즈의 2.6배).
-
-■ 바꿈 (2026-11-28)
-· 랭크당 보너스를 재능과 상관없이 같게: 공격 +8%, 체력 +10% (TALENT_RANK_ATK·TALENT_RANK_HP). 재능 격차는 기본 배율(브론즈 ×1.0 ~ 무지개 ×1.8)로 고정, 랭크를 올려도 더 벌어지지 않는다.
-
-■ 계획 (숨은 정 게이지, 기획만)
-· 출전해서 함께 싸울 때만 쌓이는 보이지 않는 &#x27;정&#x27;. 쓰러질 뻔하다 살아남음·보스 마무리·혼자 버팀에서 많이.
-· 재능 상승 확률이 정에 비례해 오르고(천장), 판정은 보스 처치·위기 직후. 오르면 정 초기화.
-· 안전망: 최고 랭크 근처에서 무지개 확정. 화면에 게이지·확률 표시 없음.</p>
-  <ul class="todo"><li class="done"><span class="box" aria-hidden="true">✓</span>랭크당 보너스를 재능과 상관없이 같게 할지 (격차를 기본 배율 1.8배로 묶기)</li><li class=""><span class="box" aria-hidden="true"></span>숨은 정 게이지 만들기 (hidden_bond 노트)</li><li class=""><span class="box" aria-hidden="true"></span>B·A·S 승급전이 생기면 상승 기회 다시 계산</li></ul>
-</details>
-<details class="note" id="growth_split" data-status="진행">
-  <summary><span class="chip s-진행">진행</span><span class="title">성장 개편: 레벨은 몸, 기술은 쓸수록 + 스킬 슬롯</span><span class="count">6/10</span></summary>
-  <p class="body">결정 (2026-11-28): 레벨과 기술 레벨을 분리한다 (B안). 레벨업 3장 선택지에는 몸 능력치(공격력·공격 속도·체력, 나중에 특성)만 — 계열과 상관없이 용병 몸에 쌓여 무기·직업을 바꿔도 버려지지 않는다. 기술(일격·회전베기·지면 강타·물질화…)은 쓸수록 오른다: 그 무기로 싸운 경험 그대로, 무기를 바꿔도 보관. 이유: &#x27;검사 30에서 사제로 바꾸면 찍은 게 잘못 찍은 게 된다&#x27;를 없애고, 레벨업 선택을 단순하게(여자친구 플레이), 애착(&#x27;이 기술 많이 썼더니 강해졌다&#x27;). 더해서 &#x27;자주 쓸 기술&#x27; (2026-11-28, 코딩식 규칙 대신 단순하게): 용병 상세에 칸 두 개 — 1. 회전베기 / 2. (선택 안 함). 고른 기술을 먼저·자주 쓰고(쿨타임이 차면 우선, 닿는 적이 없어도 기다렸다 쓰기 등), 많이 쓰니 그 기술이 빨리 자란다. 고르지 않으면 지금처럼 알아서. 글 없이 기술 아이콘을 눌러 고른다. 1단계 적용 (2026-11-28): 능력치는 perks[&#x27;body&#x27;] (GameData.BODY, STAT_IDS) — 예전 저장은 계열별 능력치를 합산. 레벨업 선택지 = 능력치 3개뿐 (그래서 지금은 늘 셋 다 나온다; 특성이 생기면 다시 무작위 3장). 기술·특성은 랭크로 배움: 일격·지면 강타·물질화 E, 회전베기·밀쳐내기 D (들고 있는 계열 기준, 무기를 바꾸면 그 계열 기술도 배움). 쓸 때마다 사용량 += 그 기술 쿨타임(초), 밀쳐내기는 한 번에 4; 다음 레벨까지 SKILL_XP_NEED [90, 200, 360, 600]. 오르면 &#x27;Lv.n!&#x27; 배너. 실험실 전투에서는 오르지 않는다. 자동 플레이: 지면 강타가 지역 3에 배워 지역 8쯤 Lv.2. 2단계 적용: 용병 정보에 자주 쓸 기술 1·2번 칸 (들고 있는 계열에서 배운 기술, 누를 때마다 선택 안 함 → 기술 차례로, 두 칸은 겹치지 않음). 넣은 기술은 먼저 쓰고 쿨타임 ×0.8 (GameData.PREF_SKILL_CD) → 많이 써서 빨리 자란다. 홈 카드의 기술 아이콘은 자주 쓸 기술이 앞, 나머지는 흐리게. 계열마다 따로 기억 (u.skill_pref). 기술 추가: 사격 — 관통 사격(E, 앞쪽 사거리 안 적 모두를 꿰뚫음, ×1.6~3.0, 쿨 10~6초), 연속 사격(D, 가장 가까운 적에게 3~5발 빠르게, 한 발 ×0.7~1.0, 쿨 12~7초). 스태프 — 화염 폭발(E, 적이 가장 많이 모인 곳 둘레 45 안 모두, ×1.8~3.3, 쿨 12~7초), 서리 고리(D, 앞쪽 사거리 150 안 적 모두 1.5~2.7초 빙결 + ×0.8~1.6, 쿨 14~9초). 성물은 아직 물질화 하나 (2번째 기술 필요). 기술을 배우면 &#x27;새 기술!&#x27; 창 (얼굴·큰 아이콘·이름·한 줄 설명·[확인]); 전투 중이면 클리어 화면 뒤에. 쓰다가 레벨이 오르면 머리 위 배너 + &#x27;기술 성장!&#x27; 창 (이름 Lv.2 → 3, 새 레벨 설명; 전투가 끝난 뒤에). 이어서: 공격 속도(시전 속도) 강화가 기술 쿨타임도 줄인다 (모든 계열, 같은 비율). 자주 쓸 기술 칸에 &#x27;자주 쓸 기술&#x27; 글과 한 줄 설명, 빈 칸은 +, 넣은 칸은 아이콘+Lv. 밀쳐내기는 특성(방패로 칠 때마다 저절로 발동)이라 칸에 넣지 않는다 — 쓸수록 저절로 오른다. 이어서: 일반 공격도 기술(basic, 모든 계열, 처음부터 Lv.1, 최대 Lv.10, 레벨마다 일반 공격 피해 +6%). 공격할 때마다 사용량 += 무기 공격 간격(초), 다음 레벨까지 skill_xp_need (Lv.5 넘으면 600+300씩). 자주 쓸 기술에 넣으면 공격 간격 ×0.9. 자주 쓸 기술 칸은 누르면 &#x27;배운 기술 목록&#x27;(아이콘·이름·Lv) 창에서 고르고 [비우기] [취소]; 다른 칸에 있던 기술을 고르면 자리를 맞바꾼다. 바뀜 (2026-11-28): &#x27;자주 쓸 기술&#x27;(우선순위) → &#x27;스킬 슬롯&#x27; — 슬롯에 넣은 기술만 쓴다 (일반 공격 포함). 처음엔 [일반 공격, 처음 배운 기술], 새로 배우면 빈 슬롯에 저절로, 둘 다 비울 수 없음(비우기 막힘). 우선 기술 쿨타임 보너스는 없앰. 예전 저장은 일반 공격이 빠져 있으면 빈 슬롯에 넣는다. 슬롯 2개라 기술이 많아지면 3칸 고려. 기술 경험치 막대: 용병 정보의 스킬 슬롯과 기술 아이콘 아래 파란 막대 (다음 레벨까지 쌓인 사용량), 최고 레벨이면 금색으로 가득. 기본 공격 이름 (&#x27;일반 공격&#x27;이란 말은 없앰): 검 = 베기, 방패 = 방패 밀기, 사격 = 쏘기, 스태프 = 마력탄, 성물 = 치유의 빛. 쿨타임 보이기: 전투 중 홈 카드의 기술 아이콘을 어두운 막이 덮고, 남은 쿨타임만큼 아래로 줄어든다 (u.skill_cd_total). 용병 정보의 기술 설명에 &#x27;실제 쿨타임 8.5초 (공격 속도 −29%)&#x27; — 공격 속도 강화가 기술 쿨타임을 줄인다는 걸 보이게. 기본 공격 아이콘을 계열마다 (베기 칼, 방패 밀기 방패+화살표, 쏘기 화살, 마력탄 보라 구슬, 치유의 빛 초록 십자), 카드에서 기본 공격도 공격 간격만큼 쿨타임 그림자.</p>
-  <ul class="todo"><li class="done"><span class="box" aria-hidden="true">✓</span>기술 숙련 규칙: 쓸 때마다 기술 경험치, 쿨타임 긴 기술 보정</li><li class="done"><span class="box" aria-hidden="true">✓</span>레벨업 선택지에서 기술 빼기 (몸 능력치만), 기존 저장의 기술 레벨 유지</li><li class="done"><span class="box" aria-hidden="true">✓</span>강화(능력치)를 계열 공통으로 합치기 — 기존 저장은 계열별 레벨 합산</li><li class="done"><span class="box" aria-hidden="true">✓</span>자주 쓸 기술 칸 2개 (용병 상세, 아이콘으로 고르기)와 우선 사용 규칙</li><li class="done"><span class="box" aria-hidden="true">✓</span>계열마다 기술 2개 이상 (사격·스태프는 아직 없음)</li><li class=""><span class="box" aria-hidden="true"></span>성물 2번째 기술 (D랭크)</li><li class=""><span class="box" aria-hidden="true"></span>돌파 효과(강화 총량 30·60·90, 비율이 효과 모양)와 연결</li><li class=""><span class="box" aria-hidden="true"></span>직업 카드 기획과 합치기</li><li class="done"><span class="box" aria-hidden="true">✓</span>홈 카드의 기술 아이콘을 &#x27;자주 쓸 기술&#x27; 순서로 (지금은 배운 기술 전부)</li><li class=""><span class="box" aria-hidden="true"></span>슬롯 3칸으로 늘릴지 (기술이 2개 넘게 생기면)</li></ul>
-</details>
-<details class="note" id="lab" data-status="진행">
-  <summary><span class="chip s-진행">진행</span><span class="title">개발자 실험실</span><span class="count">1/5</span></summary>
-  <p class="body">사전 → 개발 탭 맨 위 [실험실]. 용병(무기·재능·랭크·숙련도·강화/스킬 레벨, 최대 4명, 위가 맨 앞)과 몬스터(종류·마릿수·우두머리, 몬스터 지역 1~30)를 꾸려 바로 싸운다. 진짜 용병단은 잠시 빼 두고, 골드·경험치·사전 기록·저장은 건드리지 않는다. 후퇴 버튼 = 바로 중단. 끝나면 용병마다 준 피해·초당 피해·받은 피해·치유·처치를 보여 주고 [다시] [설정] [나가기]. 설정은 user://lab.json에 남는다 (scripts/lab.gd).</p>
-  <ul class="todo"><li class="done"><span class="box" aria-hidden="true">✓</span>1단계: 전투 실험실 (기존 데이터로)</li><li class=""><span class="box" aria-hidden="true"></span>2단계: 직업·스킬 만들기 (배율, 전용 효과, 쿨타임·위력·범위·기절, 공격 모션 고르기)</li><li class=""><span class="box" aria-hidden="true"></span>3단계: 카운터 몬스터 특성 (단단함·날쌤·떼거리·강타)</li><li class=""><span class="box" aria-hidden="true"></span>4단계: 실험실에서 만든 것을 데이터 파일로 저장해 게임에 반영</li><li class=""><span class="box" aria-hidden="true"></span>보조 재능도 실험실에서 고르기</li></ul>
-</details>
-<details class="note" id="home_layout" data-status="진행">
-  <summary><span class="chip s-진행">진행</span><span class="title">홈 화면 개선</span><span class="count">8/10</span></summary>
-  <p class="body">홈 피드백 5가지 중 1번(장면 키우기)만 남았다. 못 때리는 자리 표시(사거리 점)와 맨 앞 방패 표시, 더 센 무기 ▲ 표시는 넣지 않는다: 플레이어가 전투를 보고 스스로 바꾼다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>장면 키우기: 하늘을 줄이고 용병을 2배로, 모닥불 주변에 앉히기, 캐릭터를 누르면 상세</li><li class="done"><span class="box" aria-hidden="true">✓</span>용병 칸 단순화: 홈에서는 체력 막대·숫자·손잡이(≡) 빼기, 전투 때만 보이기</li><li class="done"><span class="box" aria-hidden="true">✓</span>메뉴를 맨 아래 탭으로, 출전은 그 바로 위</li><li class="done"><span class="box" aria-hidden="true">✓</span>위 줄: 금화 아이콘 + 숫자(오른쪽 위), 지역 진행은 10칸 점</li><li class="done"><span class="box" aria-hidden="true">✓</span>랭크 없음 배지 &#x27;-&#x27; 빼기</li><li class="done"><span class="box" aria-hidden="true">✓</span>용병 칸과 출전 버튼 사이 빈 공간 → 세로 카드로 채움</li><li class="done"><span class="box" aria-hidden="true">✓</span>용병 칸 개선 (세로 화면): 장면 순서대로 세로 카드 4장(오른쪽이 맨 앞), 무기 든 전신 그림, 랭크·이름, 무기 아이콘(테두리=그 계열 재능), 더 센 무기 ▲→교체 창, 재능, 전투력 하나(가장 센 용병 금색, 바뀌면 ▲+n), 추천 순서 버튼, 체력 막대는 전투 때만</li><li class=""><span class="box" aria-hidden="true"></span>가로 화면 용병 칸도 같은 방식으로</li><li class="done"><span class="box" aria-hidden="true">✓</span>용병 카드 맨 아래 큰 무기 버튼 → 무기 고르기 창 (가방 무기를 종류별로 하나씩, 이 용병이 들면 센 순, 전투력 ▲/▼, 테두리=재능, 누르면 바로 장착)</li><li class="done"><span class="box" aria-hidden="true">✓</span>출전 버튼 왼쪽에 현상수배지: 출전을 누르면 그 종이로 바로 출발, 잡으면 다음 종이가 붙음. 종이를 누르면 게시판에서 [고르기]로 바꿈. 새 종이 빨간 점은 수배지에</li></ul>
-</details>
-<details class="note" id="talent" data-status="진행">
-  <summary><span class="chip s-진행">진행</span><span class="title">재능 시스템</span><span class="count">2/9</span></summary>
-  <p class="body">[1차 적용됨: 재능 굴리기·표시·F랭크 공개·무기 교체 제안·능력치 공식·랭크업 때 재능업 15%] 용병마다 무기 계열별 재능이 있다. 무기 아이콘(검·활·방패·지팡이·성물) + 배경색(브론즈·실버·골드·무지개)으로만 보여 준다. 글자·별 표시 없음, 귀한 건 확률로만 느끼게.
-· 효과: 재능은 능력치에 직접 곱해진다 (들고 있는 계열 기준). 랭크도 능력치를 올리고, 랭크 하나의 보너스 크기가 재능에 따라 달라서 랭크업과 재능업이 겹치면 폭발적으로 큰다.
-  공격 = 무기 × 숙련도 × 재능 배율 × (1 + 랭크 수 × 랭크당 보너스)
-  재능 배율 / 랭크당 공격 보너스 (초안): 없음 ×0.85/3%, 브론즈 ×1.0/5%, 실버 ×1.2/8%, 골드 ×1.45/12%, 무지개 ×1.8/18%. 체력은 랭크당 브론즈 8% ~ 무지개 22%. (기존 랭크 +10%/+5%를 대체)
-  C랭크 배율: 브론즈 ×1.20, 실버 ×1.58, 골드 ×2.15, 무지개 ×3.10. 예) 실버 D(×1.49)가 C 승급 + 골드 재능업 → ×2.15 (+44%)
-· 공개: 처음 용병은 검 실버 재능 하나 + 돌검으로 고정, 시작하자마자 공개 (처음 하는 사람이 헷갈리지 않게. 여러 재능·보조 재능은 시장 용병부터). F랭크 전에는 재능마다 랜덤하게 다 보임/계열만(회색 바탕)/색만(? 그림에 등급 색)/숨김 (브론즈는 잘 보이고, 높은 등급일수록 숨음. TALENT_HINT), 끝에 늘 ? 하나. F랭크가 되는 순간 공개되고, &#x27;가장 높은 재능에 맞는 가장 좋은 무기로 바꿀까요?&#x27; → 네.
-· 재능업: 랭크업할 때 확률, 숨겨진 조건(예: 그 계열로 5000마리)은 확정 한 단계, 각성 물약은 확률 (드물게 새 재능).
-· 종족: 모든 종족이 모든 재능이 나올 수 있지만 잘 나오는 재능·등급·개수가 다르다. 재능 개수 1~2개, 많으면 3개, 아주 드물게 전부.
-  인간: 개수 1/2/3/전부 = 55/35/9/1%, 고르게, 등급 B/S/G/무지개 = 60/33/6/1%
-  수인족: 50/38/10/2%, 검·방패 30/50/17/3%, 나머지 70/25/4.5/0.5%
-  엘프: 45/40/12/3%, 활(+스태프) 5/65/24/6%, 나머지 55/35/8/2%</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>잿불 숲은 근접만: 지금은 공개 + 가방에 더 센 무기가 있으면 교체 제안 (재능 없는 계열은 ×0.85). 나중에 그 계열 무기를 얻었을 때 제안할지</li><li class=""><span class="box" aria-hidden="true"></span>무지개와 재능 없음의 차이 크기 (C랭크에서 약 3배) 괜찮은지</li><li class=""><span class="box" aria-hidden="true"></span>재능업 확률 15% 적용. 물약 상한은 아직</li><li class=""><span class="box" aria-hidden="true"></span>숨겨진 조건 목록 (5000마리 처치 등)</li><li class="done"><span class="box" aria-hidden="true">✓</span>시장 후보 카드: ? 하나로 개수도 숨김</li><li class="done"><span class="box" aria-hidden="true">✓</span>기존 저장 용병: 불러올 때 종족 분포대로 굴리고, 이미 F 이상이면 홈에서 공개 창</li><li class=""><span class="box" aria-hidden="true"></span>&#x27;알아서 하기&#x27; 모드에서는 공개 때 자동으로 &#x27;네&#x27;</li><li class=""><span class="box" aria-hidden="true"></span>몬스터 체력·공격을 곱셈 성장 곡선에 맞추기 (밸런스 다시 재기와 함께)</li><li class=""><span class="box" aria-hidden="true"></span>공개 전에도 전투력 숫자에는 숨은 재능 효과가 반영돼 힌트가 된다 (그대로 둘지)</li></ul>
-</details>
-<details class="note" id="less_text" data-status="진행">
-  <summary><span class="chip s-진행">진행</span><span class="title">글 줄이기</span><span class="count">5/10</span></summary>
-  <p class="body">게임 화면에는 글을 최대한 없앤다 (사전은 개발 매뉴얼이라 예외). 아이콘·숫자, 색·모양(초록▲ 빨강▼, 자물쇠, 빨간 점), 움직임(승급 빛, 금화 튀기)으로 보여 주고, 설명은 아이콘을 길게 누를 때만 한 줄. 남기는 글: 용병 이름, 처음 얻은 무기 이름, 숫자.</p>
-  <ul class="todo"><li class="done"><span class="box" aria-hidden="true">✓</span>홈 로그 줄 없애기 (필요하면 전투 중 아이콘 알림만)</li><li class="done"><span class="box" aria-hidden="true">✓</span>강화 고르기 창: 위는 이름·Lv(·남은 ★n), 선택지는 큰 아이콘 + 이름 Lv.a→b, 희귀는 금테 + &#x27;+2&#x27;. 종류·설명 글은 뺌 (Mac은 마우스를 올리면 설명)</li><li class=""><span class="box" aria-hidden="true"></span>결과 화면: 골드 합계 하나 + 무기 아이콘 + 경험치 막대</li><li class=""><span class="box" aria-hidden="true"></span>현상금 종이: 그림·보상·랭크 조건 아이콘만 (이야기 글은 사전으로)</li><li class="done"><span class="box" aria-hidden="true">✓</span>용병 상세: 섹션 제목·설명 글 빼고 아이콘+숫자 (체력·공격·치명타·간격·사거리·방어·범위), 숙련도는 계열 아이콘+Lv+막대, 다음 랭크는 ▶랭크 + 승급전 몬스터 그림 + ○/×, 장비는 큰 무기 버튼(누르면 무기 고르기)+이름, 강화는 아이콘+숫자, 버튼 ◀ ▶ 대기/출전 ★n 초기화</li><li class=""><span class="box" aria-hidden="true"></span>랭크 보상 창: 배지 연출 + 금화 + 열린 메뉴 아이콘 반짝</li><li class="done"><span class="box" aria-hidden="true">✓</span>잠긴 메뉴: &#x27;F랭크 해금&#x27; 대신 자물쇠 + F 배지</li><li class=""><span class="box" aria-hidden="true"></span>이름 줄: 이름 + 직업 아이콘 (번호 빼기)</li><li class=""><span class="box" aria-hidden="true"></span>아이콘 길게 누르면 한 줄 설명</li><li class="done"><span class="box" aria-hidden="true">✓</span>홈: 메뉴 글자 빼고 아이콘만, 설정은 톱니바퀴, 속도 버튼은 전투 중에만, 위 줄 &#x27;잿불 숲 1/10  0 G&#x27;, 출전 새 현상금은 빨간 점, 용병 칸은 &#x27;이름 · 들고 있는 무기 직업&#x27;</li></ul>
-</details>
-<details class="note" id="dismiss" data-status="진행">
-  <summary><span class="chip s-진행">진행</span><span class="title">용병 내보내기</span><span class="count">0/1</span></summary>
-  <p class="body">시장에서 영입하면 합류 창이 뜨고 [출전] [대기] [방출 +영입비 절반] 중에 고른다. 이미 F랭크인 후보는 이 창에서 재능이 공개된다. 방출하면 들던 무기는 가방에 남는다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>용병 상세나 보관함에서도 방출할 수 있게 (그때 돌려받는 골드는?)</li></ul>
+<details class="note" id="small" data-status="진행">
+  <summary><span class="chip s-진행">진행</span><span class="title">작은 할 일</span><span class="count">0/6</span></summary>
+  <p class="body">· 우선순위 낮은 개선 모음</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>성물 2번째 기술 (D랭크)</li><li class=""><span class="box" aria-hidden="true"></span>나무 활·사냥 활 그림 구분</li><li class=""><span class="box" aria-hidden="true"></span>스킬 슬롯 3칸 검토</li><li class=""><span class="box" aria-hidden="true"></span>강화 아이콘 10레벨마다 테두리 색</li><li class=""><span class="box" aria-hidden="true"></span>경력자 성향에서 기술 없는 계열의 &#x27;스킬파&#x27; 제외</li><li class=""><span class="box" aria-hidden="true"></span>좌우 밀기 넘기기 iPhone 확인</li></ul>
 </details>
 </section>
 <section class="group" aria-labelledby="h-기획">
-  <h2 id="h-기획">기획 <small>12 · 정리만, 아직 안 만듦</small></h2>
+  <h2 id="h-기획">기획 <small>8 · 정리만, 아직 안 만듦</small></h2>
   
-<details class="note" id="junk_weapons" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">필요 없는 무기 처리</span><span class="count">0/1</span></summary>
-  <p class="body">안: 1) 가방에 &#x27;필요 없는 무기 팔기&#x27; 버튼 — 용병 수보다 많은 같은 무기, 누가 들어도 지금 무기보다 약한 무기를 한 화면에 보여 주고 골드로 (추천, 빠름). 2) 녹여서 조각 → 주력 무기 +1·+2 강화 (장기적으로 이 게임에 맞음, 강화 단계 옮기기 규칙 필요). 3) 같은 무기 3개 합치기. 4) 주울 때 자동 골드.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>방향 정하기</li></ul>
+<details class="note" id="next_talent" data-status="기획" open>
+  <summary><span class="chip s-기획">기획</span><span class="title">재능 성장 보장 (숨은 정 게이지)</span><span class="count">0/4</span></summary>
+  <p class="body">· 현재: 랭크업 때 15% 확률만 → C까지 브론즈가 무지개 될 확률 0.3%
+· 안: 출전·위기 극복·보스 마무리로 숨은 &#x27;정&#x27; 누적 → 재능 상승 확률 증가, 보스 처치·위기 직후 판정
+· 안전망: 최고 랭크 근처 무지개 확정. 화면 표시 없음</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>정 값 저장·누적 규칙</li><li class=""><span class="box" aria-hidden="true"></span>확률 곡선·판정 시점</li><li class=""><span class="box" aria-hidden="true"></span>재능 각성 연출</li><li class=""><span class="box" aria-hidden="true"></span>최고 랭크 안전망</li></ul>
 </details>
-<details class="note" id="unique_traits" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">용병별 고유 특성</span><span class="count">0/4</span></summary>
-  <p class="body">용병마다 고유 특성을 딱 1개 갖고 태어난다 (없는 운 나쁜 용병 없음, 특성끼리 좋고 나쁨이 아니라 방향이 다르게). 처음엔 숨어 있다가 전투에서 처음 발동하는 순간 아이콘이 생긴다. 사용자 안: 불사신(치명 피해를 50% 확률로 버팀), 유아독존(혼자 출전 시 피해·체력 2배), 수호자(나 말고 1명만 남으면 받는 피해 -50%, 곱연산), 눈이 좋은(치명타 +20%). 검토: 불사신은 한 웨이브(또는 전투)에 한 번만 — 치유와 붙으면 안 죽음. 유아독존은 혼자면 경험치도 안 나눠서 1.5배부터 실험. &#x27;수호자&#x27;는 방패 직업 이름과 겹침 → 배수진/최후의 방패, 조건은 &#x27;동료가 쓰러질 때마다 받는 피해 감소&#x27;가 더 자주 보이고 극적. 눈이 좋은은 기본 치명 5%라 +10%가 적당. 겪어서 얻는 특성은 이 위에 더해진다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>특성 10개쯤 정하기 (추가 후보: 대기만성, 선봉, 복수심, 행운아)</li><li class=""><span class="box" aria-hidden="true"></span>발동 연출과 처음 발동 때 공개</li><li class=""><span class="box" aria-hidden="true"></span>실험실에서 특성 고르기 (수치 재기)</li><li class=""><span class="box" aria-hidden="true"></span>카드·상세 화면 아이콘</li></ul>
+<details class="note" id="next_rankup" data-status="기획" open>
+  <summary><span class="chip s-기획">기획</span><span class="title">랭크업 방식 재검토</span><span class="count">0/1</span></summary>
+  <p class="body">· 문제: 파티와 높은 의뢰를 깨도 승급전 대상이 아니면 랭크가 안 오름
+· 안: 자기 랭크보다 높은 등급 의뢰 성공 시 한 단계 승급 (보류 중)</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>결정</li></ul>
 </details>
-<details class="note" id="raise_any" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">원칙: 정 붙은 용병은 끝까지 키우면 최강</span><span class="count">0/1</span></summary>
-  <p class="body">외형이든 이름이든 정이 붙은 용병을 끝까지 키우면 누구든 가장 강해질 수 있어야 한다. 재능은 속도를 정하고 끝은 모두 같다: 좋은 재능은 빨리·싸게, 나쁜 재능도 오래 키우면 같은 곳에 도착. 모든 성장 기획(직업 카드 포함)의 기준. 단, 반드시 오른다는 걸 플레이어에게 알려 주지 않는다 (게임 화면·도움말에 없음, 이 개발 탭에만).</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>지금 구조 점검: 브론즈 용병이 끝까지 키워도 약하게 끝나는 곳 찾기 (재능 배율, 랭크당 보너스)</li></ul>
-</details>
-<details class="note" id="hidden_bond" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">숨은 정 게이지: 믿고 키운 용병의 재능이 깨어난다</span><span class="count">0/7</span></summary>
-  <p class="body">용병마다 보이지 않는 &#x27;정&#x27; 값. 출전해서 함께 싸울 때만 쌓인다 (대기는 안 쌓임). 많이 쌓이는 순간: 쓰러질 뻔하다 살아남음, 보스 마무리, 혼자 남아 버팀. 재능 상승은 여전히 확률이지만 정이 쌓일수록 확률이 오른다 (천장). 오르면 정은 비워지고 다시 쌓인다. 판정은 아무 때나가 아니라 보스를 잡은 직후·위기를 넘긴 직후 → &#x27;이 녀석이 해냈다 → 재능이 깨어났다&#x27;. 안전망: 최고 랭크에 이를 즈음엔 무조건 무지개. 화면에 게이지·확률·설명 없음.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>정 값 저장 (MERC_KEYS)과 쌓이는 규칙·양</li><li class=""><span class="box" aria-hidden="true"></span>확률 곡선: 처음엔 거의 안 오르다가 &#x27;슬슬 오를 때&#x27; 오르게</li><li class=""><span class="box" aria-hidden="true"></span>판정 시점: 보스 처치 직후, 위기(체력 낮음) 넘긴 직후</li><li class=""><span class="box" aria-hidden="true"></span>재능이 깨어나는 연출 (배너·빛)</li><li class=""><span class="box" aria-hidden="true"></span>안전망: 최고 랭크 근처에서 무지개 확정</li><li class=""><span class="box" aria-hidden="true"></span>지금의 승급 때 확률 상승(_roll_talent_up)과 합치거나 대체</li><li class=""><span class="box" aria-hidden="true"></span>실험실에서 몇 번 출전에 오르는지 확인하는 도구</li></ul>
-</details>
-<details class="note" id="earned_traits" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">겪어서 얻는 특성</span><span class="count">0/4</span></summary>
-  <p class="body">타고나는 랜덤 특성은 운 나쁜 용병을 만들어 원칙과 부딪힌다. 대신 그 용병이 겪은 일로 특성이 생긴다. 예: 쓰러지기 직전에서 살아남음 → 잘 죽지 않는(치명적인 피해를 50% 확률로 체력 1로 버팀), 보스 마무리 → 보스 사냥꾼, 쓰러지지 않고 오래 클리어 → 불굴. 조건을 정확한 횟수로 두지 않고 겪을수록 확률이 쌓이다가 극적인 순간에 생긴다 (숨은 정 게이지와 같은 방식). 얻는 순간 &#x27;특성 획득&#x27; 배너, 카드에 아이콘. 발동이 눈에 보이는 효과만 (숫자만 바뀌는 효과는 안 됨). 오래 키운 용병일수록 특성이 많아져 원칙을 강화.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>특성 후보와 겪을 일 정하기 (잘 죽지 않는, 보스 사냥꾼, 불굴, 날쌘, 대식가, 행운아…)</li><li class=""><span class="box" aria-hidden="true"></span>발동 연출 (버텼다!, 회피 등)</li><li class=""><span class="box" aria-hidden="true"></span>상세 화면: 아이콘을 누르면 이름·한 줄 설명</li><li class=""><span class="box" aria-hidden="true"></span>나쁜 특성은 넣지 않는다 (처음엔 좋은 것만)</li></ul>
+<details class="note" id="next_traits" data-status="기획" open>
+  <summary><span class="chip s-기획">기획</span><span class="title">용병 특성</span><span class="count">0/3</span></summary>
+  <p class="body">· 고유 특성 1개씩 (불사신·유아독존·배수진·눈이 좋은·대기만성 등), 첫 발동 때 공개
+· 겪어서 얻는 특성 (위기 생존 → 잘 죽지 않는, 보스 마무리 → 보스 사냥꾼)
+· 발동이 눈에 보이는 효과만</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>특성 목록 10개</li><li class=""><span class="box" aria-hidden="true"></span>발동 연출·첫 발동 공개</li><li class=""><span class="box" aria-hidden="true"></span>상세 화면 표시</li></ul>
 </details>
 <details class="note" id="class_cards" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">직업 카드: 모험가 → E랭크에 직업 3장 중 선택</span><span class="count">0/13</span></summary>
-  <p class="body">레벨업마다 체력·공격·속도를 고르는 피로를 없애고, 선택을 한 번에 크게 모은다. 무기 계열별 숙련도를 없애고 용병 레벨 하나로. 처음엔 모두 &#x27;모험가&#x27;(레벨업은 자동 성장). E랭크 승급 순간 직업 카드 3장이 나오고 하나를 고른다 (승급 = 전직). 카드는 재능 높은 계열과 지금 든 무기에서 뽑는다 (예: 검 실버·방패 골드·검을 든 용병 → 수호기사 / 검사 / 성기사). 카드엔 아이콘·직업 이름·재능 색만. 직업이 정해진 뒤 레벨업은 그 직업 전용 스킬·특성 3개 중 선택. 재미의 조건: 직업 차이가 숫자만이면 실패 — 모션·스킬·역할이 눈에 보이게 달라야 한다. 먼저 1대륙 근접 직업 3개만 만들어 &#x27;고르는 순간이 설레는지&#x27; 해 보고 넓힌다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>결정: 직업을 고른 뒤 다른 무기도 들 수 있나 (추천: 들 수 있지만 직업 보너스는 직업 무기에만)</li><li class=""><span class="box" aria-hidden="true"></span>결정: 직업 바꾸기 (추천: 골드 내고 다시 고르기)</li><li class=""><span class="box" aria-hidden="true"></span>결정: 골고루/애매한 용병의 기본 직업과 장점</li><li class=""><span class="box" aria-hidden="true"></span>근접 시범 직업 3개: 수호기사(받는 피해 감소·몬스터가 먼저 노림), 도적/검사(빠른 공격·회피·치명·2연타), 광전사(체력 낮고 일격이 아주 강함) — 각자 모션·스킬 다르게</li><li class=""><span class="box" aria-hidden="true"></span>직업 카드 화면 (3장, 글 없이)</li><li class=""><span class="box" aria-hidden="true"></span>숙련도 제거 → 용병 레벨 하나: 전투력·경험치 분배·저장 변환</li><li class=""><span class="box" aria-hidden="true"></span>F랭크 재능 공개 조건을 숙련도 대신 용병 레벨로</li><li class=""><span class="box" aria-hidden="true"></span>랭크 승급 조건을 숙련도 대신 레벨 + 승급전으로</li><li class=""><span class="box" aria-hidden="true"></span>모험가 구간(F)이 심심하지 않게 E랭크까지 짧게</li><li class=""><span class="box" aria-hidden="true"></span>직업 전용 레벨업 선택지 (스킬·특성)</li><li class=""><span class="box" aria-hidden="true"></span>C랭크 공격 모션 변화와 직업 연결</li><li class=""><span class="box" aria-hidden="true"></span>사전 도움말 갱신</li><li class=""><span class="box" aria-hidden="true"></span>나중에: 활·스태프·성물 직업</li></ul>
+  <summary><span class="chip s-기획">기획</span><span class="title">직업 카드</span><span class="count">0/3</span></summary>
+  <p class="body">· E랭크 승급 때 직업 카드 3장 중 선택 (재능 높은 계열 + 든 무기 기준)
+· 직업마다 모션·기술·역할이 확실히 달라야 함
+· 근접 3직업(수호기사·도적·광전사)으로 먼저 검증</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>직업 바꾸기·다른 무기 허용 규칙</li><li class=""><span class="box" aria-hidden="true"></span>근접 시범 직업 3개</li><li class=""><span class="box" aria-hidden="true"></span>직업 카드 화면</li></ul>
 </details>
-<details class="note" id="continents_456" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">대륙 4~6: 깊은 바다 · 천상궁 · 마왕성</span><span class="count">0/5</span></summary>
-  <p class="body">증기 연방·별바다 전초기지를 빼고 판타지 대륙 셋으로 바꿨다 (대륙 6개, 마지막이 마왕성 = 최종 목표). 지금은 이름·설명·시대 이름(해저·천상·마계)·지도만 바뀌었고, 셋 다 &#x27;준비 중&#x27;이라 갈 수 없다 (CONTINENTS의 ready: false). 개발할 때 대륙마다 아래를 만든다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>깊은 바다 (해저): 배경(물빛·산호·물고기 떼), 야영지(산호초 동굴), 몬스터(인어 전사, 상어, 거대 문어, 해파리, 보스 크라켄), 무기(삼지창, 산호 방패, 작살, 조개 지팡이, 진주 성물)</li><li class=""><span class="box" aria-hidden="true"></span>천상궁 (천상): 배경(구름·하얀 기둥·빛줄기), 야영지(구름 위 신전 뜰), 몬스터(천사 병사, 날개 기사, 빛의 정령, 보스 대천사), 무기(성검, 빛의 방패, 빛의 활, 천상 지팡이, 성배)</li><li class=""><span class="box" aria-hidden="true"></span>마왕성 (마계): 배경(검은 번개·붉은 하늘·성벽), 야영지(폐허 진지), 몬스터(악마, 마족 기사, 지옥견, 보스 마왕), 무기(마검, 흑요 방패, 저주 활, 마도서, 해골 부적)</li><li class=""><span class="box" aria-hidden="true"></span>예전 근대·미래 몬스터와 무기(증기 로봇, 총, 레이저 등) 정리 또는 교체</li><li class=""><span class="box" aria-hidden="true"></span>대륙별 승급전 대상과 지원 랭크 (마왕성은 B랭크 이상?)</li></ul>
+<details class="note" id="junk_weapons" data-status="기획">
+  <summary><span class="chip s-기획">기획</span><span class="title">필요 없는 무기 처리</span><span class="count">0/1</span></summary>
+  <p class="body">· 안1: 가방 &#x27;필요 없는 무기 팔기&#x27; 한 번에 (추천, 빠름)
+· 안2: 녹여서 주력 무기 강화 (장기)</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>방향 결정</li></ul>
 </details>
-<details class="note" id="two_styles" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">두 가지 플레이 방식</span><span class="count">0/4</span></summary>
-  <p class="body">아무 생각 없이 하고 싶은 사람(출전만 누름)과 찬찬히 전략을 짜는 사람을 같이 챙긴다. 고를 게 생기면 늘 추천안이 있고 안 고르면 알아서 진행된다. 맡겨도 끝까지 깰 수 있고, 직접 고르면 조금 더 빠르다 (자동 선택은 평균보다 조금 낮게).</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>&#x27;알아서 하기&#x27; 스위치 하나로 묶을지, 항목별로 둘지</li><li class=""><span class="box" aria-hidden="true"></span>새 게임 시작할 때 &#x27;편하게 / 직접 챙기기&#x27;를 물을지</li><li class=""><span class="box" aria-hidden="true"></span>맡길 것: 강화 고르기, 다음 현상금 출전, 더 좋은 무기 장착, 출전 4명 고르기</li><li class=""><span class="box" aria-hidden="true"></span>밸런스: 자동과 직접의 차이 재기</li></ul>
+<details class="note" id="growth_boost" data-status="기획">
+  <summary><span class="chip s-기획">기획</span><span class="title">강화 돌파 효과</span><span class="count">0/1</span></summary>
+  <p class="body">· 능력치 30·60·90개마다 누구나 돌파
+· 효과 모양은 비율로 결정 (공격 위주 강타, 속도 위주 2연타, 반반 연계, 체력 위주 버티기)
+· 상세에 다음 돌파·예상 효과 표시</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>효과·수치</li></ul>
+</details>
+<details class="note" id="content" data-status="기획">
+  <summary><span class="chip s-기획">기획</span><span class="title">콘텐츠</span><span class="count">0/3</span></summary>
+  <p class="body">· 대륙 4~6 (깊은 바다·천상궁·마왕성): 배경·야영지·몬스터·무기
+· 사막 일반 몬스터 2~3종 추가 (우두머리 중복 해소)
+· B·A·S 승급전</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>대륙 4</li><li class=""><span class="box" aria-hidden="true"></span>사막 몬스터</li><li class=""><span class="box" aria-hidden="true"></span>B·A·S 승급전</li></ul>
 </details>
 <details class="note" id="balance" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">밸런스 다시 재기</span><span class="count">0/2</span></summary>
-  <p class="body">전에는 혼자서 지역 1~9를 쓰러지지 않고 깼다 (너무 쉬움). 잿불 숲이 근접만 나오고 치유가 없어졌고, 공격력 범위·치명타·C랭크 연속 베기가 들어왔고, 출전 인원 보정이 없어졌으니 다시 잰다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>1명·4명으로 지역 1~10 자동 진행 기록</li><li class=""><span class="box" aria-hidden="true"></span>몬스터 체력·공격 조정</li></ul>
-</details>
-<details class="note" id="c_rank_forest" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">잿불 숲 안에서 C랭크</span><span class="count">0/1</span></summary>
-  <p class="body">C랭크 승급전 대상(전갈 왕 등)이 다음 대륙에 있어서 잿불 숲에서는 C랭크와 연속 베기를 볼 수 없다. 트윈헤드 오우거 지원 조건(평균 C)과도 이어진다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>잿불 숲 안에 C 승급전 대상을 둘지, 다음 대륙에 다녀오게 둘지</li></ul>
-</details>
-<details class="note" id="c_rank_motion" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">다른 계열의 C랭크 동작</span></summary>
-  <p class="body">근접은 C랭크에서 연속 베기. 방패·사격·스태프·성물도 C랭크에서 동작이 바뀌면 좋겠다 (다음 대륙에서 열리는 계열).</p>
-  
-</details>
-<details class="note" id="bag_layout" data-status="기획">
-  <summary><span class="chip s-기획">기획</span><span class="title">용병 4명일 때 가방 화면</span></summary>
-  <p class="body">용병 칸 4개가 위를 많이 차지해서 가방 칸이 좁다.</p>
-  
+  <summary><span class="chip s-기획">기획</span><span class="title">밸런스 점검</span><span class="count">0/1</span></summary>
+  <p class="body">· 공격 속도가 기술 쿨타임까지 줄여 과할 수 있음
+· 기술 성장 속도, 따라잡기 +5% 적정성
+· 방패 파티 (기절 단축 후) 난이도</p>
+  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>플레이 데이터로 확인</li></ul>
 </details>
 </section>
 <section class="group" aria-labelledby="h-적용">
-  <h2 id="h-적용">적용 <small>32 · 게임에 들어감</small></h2>
+  <h2 id="h-적용">적용 <small>2 · 게임에 들어감</small></h2>
   
-<details class="note" id="codex_open" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">사전은 개발용만 (몬스터·무기·종족·도움말 탭 없앰)</span></summary>
-  <p class="body">사전은 플레이어가 보지 않아서 개발 탭만 남겼다 (개발 노트 + 실험실 버튼). 메뉴 아이콘 이름 &#x27;개발&#x27;, 새 소식 점 없음. 몬스터 연구 골드 보상(잡은 수)은 그대로 들어온다. 규칙 설명은 이 개발 노트와 위키 개발 노트 페이지에.</p>
-  
-</details>
-<details class="note" id="stun_tune" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">기절 짧게, 강한 적은 더 짧게</span></summary>
-  <p class="body">지면 강타 기절 2.5~4.0초 → 1.2~2.0초, 서리 고리 빙결 1.5~2.7초 → 0.8~1.6초. 강한 적 저항(GameData.STUN_RESIST): 일반 ×1, 우두머리 ×0.6, 중간 보스 ×0.45, 보스 ×0.3 — 예: 지면 강타 Lv.1이 보스에게는 0.36초.</p>
+<details class="note" id="principles" data-status="적용">
+  <summary><span class="chip s-적용">적용</span><span class="title">설계 원칙</span></summary>
+  <p class="body">· 정 붙은 용병은 끝까지 키우면 최강 (재능은 속도 차이, 끝은 같음). 보장은 숨김
+· 두 플레이: 생각 없이 하는 사람 / 전략적으로 하는 사람 모두 만족
+· 화면 글 최소화: 아이콘·숫자·색·동작. 설명은 이 개발 노트에만
+· 플레이 감상은 원인 먼저 설명 → 고칠지 협의</p>
   
 </details>
-<details class="note" id="bows" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">사격은 활부터 (돌·투석구 없앰)</span><span class="count">0/1</span></summary>
-  <p class="body">용병 무기에서 돌·투석구를 빼고 나무 활(원시, 돌 자리)·사냥 활(고대, 투석구 자리)로. 돌·투석구는 투석 고블린·적군 투석병 그림용 몬스터 전용 무기(npc)로만 남아 보상·시장·사전·실험실·위키에 안 나온다 (GameData.player_weapons, weapon_open). 예전 저장의 돌·투석구는 불러올 때 활로 (WEAPON_RENAMES). 전갈왕 보상 투석구 → 사냥 활. 같이: 전투 중 카드 기술 쿨타임을 시계방향으로 걷히는 어두운 부채꼴로.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>나무 활·사냥 활 그림을 활과 다르게 (지금은 같은 그림)</li></ul>
-</details>
-<details class="note" id="empty_party_slot" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">홈의 빈 출전 칸 +</span></summary>
-  <p class="body">출전이 4명 미만이면 홈 카드 줄 왼쪽에 빈 칸. 대기 용병이 있으면 + (누르면 &#x27;출전할 용병&#x27; 목록: 얼굴·랭크·이름·무기·전투력, 고르면 출전), 없으면 + 없이 누를 수 없는 빈 칸. 높이는 옆 카드와 같게.</p>
-  
-</details>
-<details class="note" id="trials_per_continent" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">승급전을 대륙마다</span></summary>
-  <p class="body">계기: F랭크 용병이 사막에서 승급하려면 숲으로 돌아가야 했다. 지금 RANK_TRIALS: E = 킹 슬라임 · 거대 전갈 · 늑대, D = 오우거 · 미라 · 해골 병사, C = 전갈왕 · 거대 검정뱀 · 모래 웜 · 흑기사 · 원한의 망령. 사막·성채의 E·D는 그 몬스터의 우두머리 현상금(별명 붙은 것 포함)을 잡으면 통과. 랭크는 차례대로만 오른다(Unit.rank_index: E를 건너뛰고 D가 되지 않는다). 같이: 용병 정보의 &lt; &gt; 넘기기를 제목 줄 아래 가운데 &#x27;&lt; 2/4 &gt;&#x27;로 (닫기와 떨어지게).</p>
-  
-</details>
-<details class="note" id="detail_nav" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">용병 정보에서 앞·뒤 용병 넘겨 보기</span></summary>
-  <p class="body">용병 정보 맨 위 &lt; &gt; 버튼 (또는 화면을 좌우로 밀기)으로 다른 용병으로 넘어간다. 순서는 홈 카드와 같게(세로 화면은 왼쪽부터), 그다음 대기 용병. 제목에 &#x27;2/4&#x27;. 헷갈리지 않게 아래의 출전 순서 버튼은 ◀ ▶ 대신 &#x27;앞자리로&#x27; &#x27;뒷자리로&#x27;. 이어서: 용병 정보의 기술·능력치 아이콘을 누르면 아래에 &#x27;이름 Lv.n — 설명&#x27;과 (기술이면) &#x27;다음 레벨까지 60%&#x27;가 나온다. 다시 누르면 닫힘. 마우스 올리기(툴팁)는 휴대폰에서 안 되니. 이어서: 용병 정보에서 &#x27;스킬&#x27;(기술·특성, 경험치 막대)과 &#x27;능력치&#x27;(공격력·체력·공격 속도)를 따로 칸으로. 이어서: 출전 빼기/넣기 버튼을 맨 아래 따로 크게 (빼기 붉은, 넣기 초록). 빼면 바로 홈으로. 이어서: 용병 정보에 &#x27;재능&#x27; 칸 — 계열마다 재능 아이콘 + &#x27;마법사 공격 ×1.45 · 랭크마다 +12%&#x27; (+ 실버 이상은 &#x27;보조로: 주변 피해 26&#x27;), 가장 좋은 계열 ★(금색), 지금 든 계열 &#x27;지금&#x27;. 버그: 스킬 슬롯에서 비운 기본 공격이 불러올 때마다 다시 들어가던 것을 고침(예전 저장 변환이 매번 돌았다). 용병 정보의 &#x27;앞자리로·뒷자리로&#x27;는 안 써서 뺐다 (순서는 홈 카드 끌기·추천 순서 버튼). 재능 칸 간결하게: 계열마다 한 줄 [재능 칸 · 직업 · 공격 배율 막대 · ×1.45], 가장 좋은 계열은 금색 막대와 ★, 지금 든 계열은 파란 테두리. 줄을 누르면 자세히 (랭크마다 공격 +%, 보조 효과). 재능 칸의 공격 배율 막대는 &#x27;다 차면 골드가 되나?&#x27;로 읽혀서 뺐다 — ×숫자와 ★만.</p>
-  
-</details>
-<details class="note" id="card_skills" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">홈 카드에 쓰는 기술 아이콘</span></summary>
-  <p class="body">홈 용병 카드의 전투력 오른쪽에, 들고 있는 계열에서 배운 기술(일격·회전베기·지면 강타·물질화) 아이콘. 누르고 있으면(마우스를 올리면) 이름과 레벨. 성장 개편에서 &#x27;자주 쓸 기술&#x27; 칸이 생기면 그 순서로 보여 준다.</p>
-  
-</details>
-<details class="note" id="perk_after_clear" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">보스를 잡은 레벨업은 클리어 화면 뒤에 고르기</span></summary>
-  <p class="body">예전: 마지막 웨이브의 처치로 레벨업하면 강화 창이 뜨자마자 클리어 화면이 덮고, 닫으면 강화 창이 다시 보였다 (카드 → 클리어 → 카드). 지금: 마지막 웨이브를 끝낸 처치·돌아가는 중의 레벨업은 미뤘다가, 클리어 화면과 보상 창이 다 끝난 뒤에 고른다. 이미 열려 있던 강화 창도 홈에 도착하면 접어 뒀다가 같은 순서로.</p>
-  
-</details>
-<details class="note" id="hire_swap" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">영입하면 재능 공개 · 출전이 꽉 차면 바꿀 사람 고르기</span></summary>
-  <p class="body">영입하면 랭크와 상관없이 숨은 재능(?)이 바로 밝혀진다 (합류 창에서). 출전 4명이 꽉 찼을 때 [출전](합류 창, 용병 정보, 용병단 보관함)을 누르면 &#x27;바꿀 사람&#x27; 창: 들어갈 용병 얼굴·전투력 ⇄ 출전 중인 4명(홈 카드와 같은 순서, 전투력)을 누르면 그 자리에 서고 바뀐 사람은 대기. [취소] 있음.</p>
-  
-</details>
-<details class="note" id="market_honest" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">시장: 직업 재능은 공개, 나머지는 룰렛</span><span class="count">0/2</span></summary>
-  <p class="body">계기: &#x27;검사 + 금색 ?&#x27;를 보고 검 골드인 줄 알고 샀더니 마법사 골드 — 사기당한 기분. 원인: 직업은 들고 온 무기 기준인데, 금색 ?는 계열을 숨긴 다른 재능이었다. 지금: 직업(들고 온 무기 계열) 재능은 언제나 계열·등급 다 공개(없으면 하나 만들어 준다), 가격은 그 재능으로 (JOB_TALENT_PRICE 브론즈 ×1, 실버 ×1.6, 골드 ×2.5, 무지개 ×4). 다른 재능은 숨김: 색만 보이면 계열 그림이 룰렛처럼 돌고 오른쪽 아래 작은 ?, 아니면 회색 ?. 숨은 재능은 가격에 넣지 않고 직업보다 높을 수도 있다(대박). 메달 색이 랭크처럼 읽히는지는 처음 하는 사람에게 확인해 볼 것. 이어서: 시장 용병의 숙련도·랭크를 대륙 적정 난이도에 맞춘다 (GameData.MARKET_LV / MARKET_RANK): 잿불 숲 0~6 (F), 황금 모래 왕국 22~32 (D, 킹 슬라임·오우거 승급전을 넘은 경력자), 성채 왕국 38~48 (C)… 숙련도만큼 강화는 이미 찍혀 와서(무작위 3개 중 하나씩) 영입하자마자 수십 번 고르지 않는다. 숨은 재능 계열은 숙련도 0부터. 가격 = 100 × (대륙 번호) + (최저 숙련도를 넘은 만큼) × 20, 그다음 종족·직업 재능 배율. 이어서 (신병·경력자): 두 번째 대륙부터 후보의 34%는 신병 — 숙련도 0~5, 강화 없음(영입하면 직접 고름), 가격 100 + 레벨×20. 나머지는 경력자 — 대륙 레벨·랭크, 성향(공격파·체력파·속도파·스킬파)대로 레벨업마다 선택지 중 성향에 맞는 것을 75% 골라 온 강화, 시장 카드에 강화 아이콘·레벨(높은 순 4개)이 보인다. 이유: 경력자의 강화를 다시 찍게 하면 그 사람이 살아온 시간이 지워져 몰입을 해친다 → 직접 키우고 싶으면 신병, 당장 힘이 필요하면 보고 고르는 경력자. 이어서: 회색 ?는 숨은 재능 하나에 하나씩 (예전엔 하나로 묶어서, 영입하니 실버 둘이 나와 개수가 안 맞아 보였다).</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>처음 하는 사람에게 금색 칸이 뭐 같은지 물어보기 (레벨처럼 읽히면 별 개수로)</li><li class=""><span class="box" aria-hidden="true"></span>F랭크 공개 때 룰렛이 멈추는 연출</li></ul>
-</details>
-<details class="note" id="catchup_xp" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">따라잡기 경험치</span><span class="count">0/1</span></summary>
-  <p class="body">계기: 55레벨로 혼자 키우다 골드 재능 용병을 영입했더니 &#x27;다시 55번 골라야 하나&#x27; 부담. 원인: 시장 용병은 숙련도 0~6에서 시작, 함께 출전하면 경험치를 나눠 받아 더 느림, 레벨마다 고르기. 지금: 용병단에서 가장 많이 키운 용병(주 계열 숙련도)보다 낮으면 차이 1레벨마다 경험치 +5% (GameData.CATCHUP_PER_LV). 시험: 55레벨 옆 새 용병(0)은 처치 40번에 14, 200번에 31 (배율 3.05 → 2.35). 앞 용병을 추월하지는 않는다. 한꺼번에 고르기 버튼은 넣지 않았다(사용자 선택).</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>따라잡는 속도가 적당한지 플레이로 보기 (+5% → 더 크게?)</li></ul>
-</details>
-<details class="note" id="chief_variants" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">같은 몬스터 우두머리에 별명·모습 차이</span><span class="count">0/1</span></summary>
-  <p class="body">원인: 대륙마다 일반 몬스터가 3종 남짓인데 우두머리 자리는 8개라 같은 몬스터가 겹친다 (오아시스: 거대 전갈 4장). 지금: 같은 대륙에서 두 번째부터 별명(외눈 → 흉터투성이 → 늙은 → 성난 → 피 묻은 → 굶주린)을 붙이고 &#x27;우두머리&#x27;는 첫 장만. 별명 붙은 녀석은 한 단계마다 10% 더 크고(수배지 그림 12%) 전투에서 빛깔이 다르다. 능력치는 같다. 현상금 id는 그대로라 저장은 영향 없음.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>사막(대륙 2) 일반 몬스터 2~3종 추가 (모래 도마뱀, 독수리, 사막 도적 등) — 본격적으로 만들 때</li></ul>
-</details>
-<details class="note" id="req_stamp" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">현상금 지원 랭크: 못 갈 때만 빨간 도장</span></summary>
-  <p class="body">예전: 모든 종이 왼쪽 위에 어두운 네모 + 형광 랭크 글자 (못 가면 빨간 테두리). 뜻이 안 읽히고(대부분 이미 조건을 만족) 종이와 이질적. 지금: 갈 수 있으면 아무 표시 없음, 못 가면 원 안에 랭크 글자가 든 빨간 잉크 도장을 비스듬히 + 종이를 살짝 어둡게. 홈 출전 옆 종이도 같다. ↑ 승급전 배지도 종이 위에서는 잉크색(테두리만)으로. 세계 지도의 대륙 조건 배지는 그대로. 이어서: 게시판을 지원 등급별로 묶었다 — 나무 팻말 &#x27;누구나&#x27;(지역 1~2), &#x27;F급 의뢰&#x27;(3), &#x27;E급 의뢰&#x27;(4~9), &#x27;C급 의뢰&#x27;(10). 아직 못 가는 등급은 팻말도 어둡다. 묶음 안은 지역 순서 그대로.</p>
-  
-</details>
-<details class="note" id="all_options" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">레벨업 선택지 전부 보여 주기 (해 보고 되돌림)</span></summary>
-  <p class="body">해 본 것: 고를 수 있는 강화를 전부 같은 순서로. 되돌린 이유: 정답이 하나로 굳는다(공격력만 누르는 게 늘 최선). 무작위 3개라야 &#x27;이번엔 공격력이 없네&#x27; 같은 우연한 선택이 생기고 용병마다 다르게 자란다. 공격력이 안 나온 진짜 원인은 Lv.10 상한이었고(상한 없앰으로 해결), 나머지는 3개 무작위라 가끔 빠지는 것. 지금: 무작위 3개 (능력치 2.5 : 스킬 1 : 특성 1.2 가중치), 선택지 목록은 많아져도 스크롤된다.</p>
-  
-</details>
-<details class="note" id="picker_sort" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">무기 고르기 정렬 (전투력·공격 속도·사거리)</span><span class="count">0/1</span></summary>
-  <p class="body">무기 고르기 창 위에 아이콘 버튼 셋: 칼(공격력 순, 기본), 모래시계(공격 간격이 짧은 순), 화살표(사거리 긴 순). 칸 아래 숫자는 고른 정렬의 수치 그대로(공격력 범위 / 간격 초 / 칸) — 지금 무기보다 좋으면 초록, 나쁘면 빨강. 맨 위 줄에 지금 무기의 공격력·간격·사거리. 계기: 공격 속도 가장 빠른 무기를 못 찾겠다 → 첫 버튼이 공격력인 줄 알았는데 전투력이라 이상하다, 지금 장비 수치가 안 보인다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>홈 카드의 전투력 숫자도 칼 아이콘이라 공격력과 헷갈리는지 지켜보기</li></ul>
-</details>
-<details class="note" id="reward_useful" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">이미 가진 무기는 보상으로 안 준다</span></summary>
-  <p class="body">보물상자와 현상금 무기는 &#x27;가진 수(가방 + 들고 있는 것) &lt; 용병 수&#x27;인 무기만 나온다. 쓸모 있는 무기가 없으면 보물상자는 골드(15 + 지역×3)로, 현상금은 무기 없이 골드만. 계기: 처음 클리어하면 이미 있는 돌검을 두 개나 줘서 &#x27;왜 주지?&#x27;. 같은 때 재능 힌트의 &#x27;계열만 보임(회색 바탕)&#x27;을 뺐다: 회색은 이제 숨은 재능(?)만.</p>
-  
-</details>
-<details class="note" id="levelup_cap" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">숙련도 40 이후 레벨업이 의미 없음</span><span class="count">0/2</span></summary>
-  <p class="body">검사 강화 최대치 합 = 체력 10 + 공격력 10 + 공격 속도 10 + 일격 5 + 회전베기 5 = 40. 레벨마다 하나씩 고르니 숙련도 40(C랭크)에서 고를 게 끝나고 100까지 60레벨이 빈다. 결정 (사용자): 레벨업은 지금처럼 매 레벨 1번 고른다 (2·3레벨마다는 직관적이지 않음). 선택지는 늘리면 늘렸지 줄이지 않는다 → 고를 것의 종류를 늘려서 100까지 채운다. 적용 (2026-11-28): 공격력·공격 속도·체력 강화의 상한을 없앴다 (max = NO_CAP 999). 공격 속도는 간격 = 무기 간격 ÷ (1 + 레벨 × 0.06)으로 오를수록 덜 오르고 0이 되지 않는다. 계기: 혼자 출전하면 경험치를 혼자 받아 지역 3~4에서 숙련도 14, 희귀 +2까지 겹쳐 공격력 Lv.10(전 상한)에 닿았다. 조정 (2026-11-28): 공격 속도 레벨당 0.06 → 0.07. 20레벨 배분별 초당 피해: 공격력 20 = 2.60, 반반 = 2.89, 속도 20 = 2.40 (전 2.20). 최적은 공격력 11·속도 9 근처.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>숙련도 100 상한도 없앨지</li><li class=""><span class="box" aria-hidden="true"></span>10레벨마다 강화 아이콘 테두리 색 단계</li></ul>
-</details>
-<details class="note" id="detail_cleanup" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">용병 정보·보상 창 정리 (헷갈림 줄이기)</span><span class="count">0/1</span></summary>
-  <p class="body">사용자 피드백: &#x27;▶ F&#x27;를 접기·펴기로 알고 누름, ★·초기화가 필요 없어 보임, &#x27;대기&#x27;가 무슨 뜻인지 모름, 시작할 때 재능 창의 [확인]을 못 보고 [출전]이 안 먹혀 렉으로 앎, &#x27;용병단 첫 F랭크&#x27; 보상이 와닿지 않음. 바꾼 것: 다음 랭크는 현상수배지와 같은 ↑랭크 배지. 버튼은 &#x27;출전 빼기/넣기&#x27;, ★ 대신 미룬 강화가 있을 때만 &#x27;강화 고르기 N&#x27;. 강화 초기화 버튼과 망각의 물약(현상금·랭크 보상)을 뺐다. 시작 재능 창 없음. 보상 창은 큰 금색 [확인] + 뒤를 어둡게, 바깥을 누르면 닫히거나(재능·랭크) 흔들림(바꿀까요·영입). &#x27;용병단 첫 N랭크&#x27; 창 대신 골드는 결과 화면 골드에 합치고, 열린 기능은 메뉴 아이콘의 빨간 점(처음 열어 볼 때까지). 이후: 다음 랭크 줄의 승급전 몬스터를 작은 수배지(잉크 그림 + 압정)로, 못 만난 대상은 그림자 대신 &#x27;?&#x27; 종이로. ○/×는 뺐다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>◀ ▶ (순서 바꾸기) 버튼도 헷갈리는지 지켜보기</li></ul>
-</details>
-<details class="note" id="range_cells" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">사거리를 칸 단위로</span></summary>
-  <p class="body">1칸 = 용병 사이 간격(GameData.CELL 30). 무기 range를 칸의 배수로 맞췄다: 방패 1, 검·몽둥이·도끼·단검·낫·망치 2, 창·총검 3, 지팡이·부적 5~6, 돌·투석구 6, 활·총 7, 레이저 라이플 8. 규칙: N번째 자리의 용병은 사거리 N칸 이상이면 맨 앞 적에게 닿는다. 스킬 범위도 칸으로 (일격·지면 강타 4칸, 회전베기 2칸, 물질화 6칸). 화면 표시: 무기 고르기 칸 오른쪽 아래 화살표+숫자, 상세·가방·사전은 &#x27;N칸&#x27;. 닿는지 표시(점)는 그리지 않는다. 이어서: 사거리는 기술에 붙는다 — 용병 정보 능력치 칸의 &#x27;사거리&#x27;를 빼고, 스킬 슬롯(Lv.3 →2), 슬롯 고르기 목록(→4칸), 기술 설명(· 사거리 4칸), 새 기술 창에 기술마다 사거리. 일반 공격의 사거리 = 무기 사거리 (무기 고르기의 화살표 숫자 그대로). 다시: 스킬 슬롯·슬롯 목록의 &#x27;→4&#x27;는 레벨이 오른다는 표시로 읽혀서 뺐다. 사거리는 기술 설명(· 사거리 4칸)에만.</p>
-  
-</details>
-<details class="note" id="rank_skills" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">랭크로 배우는 스킬</span><span class="count">0/1</span></summary>
-  <p class="body">근접 스킬 일격은 E랭크, 회전베기는 D랭크가 되면 Lv.1을 배운다 (PERKS의 rank). 배우기 전에는 강화 선택지에 나오지 않고, 배운 뒤부터 Lv.2~ 강화로 나온다. 예전 저장에서 이미 그 랭크면 불러올 때 배운 상태로.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>다른 계열 스킬도 랭크로 배우게 (지면 강타 등)</li></ul>
-</details>
-<details class="note" id="sub_talent" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">보조 재능</span><span class="count">0/1</span></summary>
-  <p class="body">들고 있지 않은 계열 중 가장 높은 재능(실버 이상)이 자동으로 보조가 된다. 용병 상세의 + 아이콘을 누르면 다른 후보로 바꾼다 (sub_family). 효과 (실버/골드/무지개): 근접 공격력 +5/10/15%, 방패 받는 피해 -5/8/12%, 사격 치명타 +3/5/8%, 스태프 맞은 적 주변 18/26/34 안의 적도 25% 피해, 성물 싸우는 중 초당 최대 체력 0.5/1/1.5% 회복. 보조 계열 숙련도 10레벨마다 +10%. 홈 카드·보관함·가방은 &#x27;들고 있는 계열 재능 + 보조&#x27;만 보인다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>효과 숫자 조정</li></ul>
-</details>
-<details class="note" id="no_double" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">연타 삭제, 바꿀까요 재능 기준</span></summary>
-  <p class="body">근접 특성 &#x27;연타&#x27;를 뺐다 (예전 저장은 불러올 때 빼고 강화를 돌려준다). &#x27;바꿀까요?&#x27;와 재능 공개 때 무기 추천은 지금 든 계열보다 재능이 낮은 계열 무기는 권하지 않는다.</p>
-  
-</details>
-<details class="note" id="knockback" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">방패 밀어내기</span><span class="count">0/1</span></summary>
-  <p class="body">방패로 치면 몬스터가 뒤로 밀린다. 거리 = 10 × 방패 공격력 / 몬스터 무게 (2보다 작으면 버팀, 최대 70). 무게 = 크기/120 × 몸집 배율² × (중간 보스 ×2, 보스 ×3), 드래곤 80·모래 웜 60은 따로. 방패 특성 &#x27;밀쳐내기&#x27;(최대 Lv.5, 레벨당 +40%). 예) 나무 방패로 뿔토끼 약 23 밀림, 킹 슬라임·오우거·트윈헤드는 버팀.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>밀리는 동안 공격이 끊기게 할지 (지금은 위치만 밀림)</li></ul>
-</details>
-<details class="note" id="no_bloodlust" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">피의 갈증 삭제</span></summary>
-  <p class="body">근접 특성 &#x27;피의 갈증&#x27;(처치하면 체력 회복)을 뺐다. 예전 저장에서 이미 찍은 경우 저장을 불러올 때 빼고, 그만큼 강화를 다시 고를 수 있게 돌려준다.</p>
-  
-</details>
-<details class="note" id="company_shape" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">용병단 구조</span><span class="count">0/5</span></summary>
-  <p class="body">용병단 정원 처음 5명, 홈 아래 탭의 [용병단] 보관함에서 골드로 한 자리씩 늘린다 (300·500·800·1200·1700·2300·3000G, 최대 12명). 출전은 한 번에 4명, 홈 카드에는 출전 중인 용병만. 보관함에서 출전/대기를 바꾸고, 누르면 상세. 시장 영입 때 출전이 차 있으면 대기로 들어온다.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>숙소 최대 인원: 4 그대로 / 5 / 6</li><li class=""><span class="box" aria-hidden="true"></span>자리를 처음부터 다 줄지, 랭크마다 늘릴지</li><li class=""><span class="box" aria-hidden="true"></span>오래 함께한 단원 표시 (함께한 의뢰 수, 잡은 보스, 입단일, 고참 칭호)</li><li class=""><span class="box" aria-hidden="true"></span>용병단 이름·문장, 명성 (가볍게)</li><li class=""><span class="box" aria-hidden="true"></span>용병 내보내기와 함께 정리</li></ul>
-</details>
-<details class="note" id="rare_names" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">&#x27;희귀&#x27; 이름 정리</span></summary>
-  <p class="body">◆ 희귀 외형 표시(이름 옆 ◆, 금색 이름, 외형 설명의 &#x27;◆ 희귀&#x27;)를 모두 뺐다. 좋은 재능으로 오해해서. 희귀 머리·눈 색은 겉모습으로만 남고, 시장 가격 ×1.5 할증도 없앴다. ★ 종족 표시는 남김.</p>
-  
-</details>
-<details class="note" id="wagon_journey" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">대륙 이동: 마차 여행</span><span class="count">0/2</span></summary>
-  <p class="body">세계 지도에서 다른 대륙을 고르면 덮개 달린 마차를 타고 간다 (약 14초, JOURNEY_TIME). 여행 30%~75% 사이에 풍경이 지금 대륙에서 다음 대륙으로 서서히 겹쳐 바뀐다. 가운데쯤 반반 확률로 길가의 보물상자(골드, 가끔 다음 대륙 무기) 또는 도적 습격(마차에서 내려 2~3명과 싸움, 지면 골드 20%를 빼앗기고 계속 간다). 바뀜: 풍경은 상자를 열거나 도적을 물리친 뒤에만 다음 대륙으로 바뀐다 (사건 중에는 떠나온 풍경 그대로). 출발 3초 뒤 사건(JOURNEY_EVENT_AT), 끝나고 5초 동안 풍경이 바뀌고(JOURNEY_BLEND) 1.5초 더 달려 도착.</p>
-  <ul class="todo"><li class=""><span class="box" aria-hidden="true"></span>이벤트 종류 늘리기 (상인, 길 잃은 용병, 부상자 등)</li><li class=""><span class="box" aria-hidden="true"></span>도적 강도와 보상 조정</li></ul>
-</details>
-<details class="note" id="c_combo" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">C랭크 근접 연속 베기</span></summary>
-  <p class="body">C랭크 근접 용병은 한 번 휘두른 뒤 되돌려 한 번 더 벤다. 두 번째 베기 피해 ×0.6 (COMBO_RATIO).</p>
-  
-</details>
-<details class="note" id="atk_range_crit" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">공격력 범위와 치명타</span></summary>
-  <p class="body">공격력은 ±15% 범위로 굴린다 (ATK_SPREAD). 치명타 기본 5%, 피해 ×1.5. 흑요석 단검 +15%, 돌창 +5%.</p>
-  
-</details>
-<details class="note" id="melee_only" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">잿불 숲은 근접 무기만</span></summary>
-  <p class="body">지역 1~10에서는 방패·사격·스태프·성물이 나오지 않는다 (무기 &quot;from&quot;: 11). 다음 대륙부터 열린다.</p>
-  
-</details>
-<details class="note" id="no_party_bonus" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">출전 인원 보정 정리</span></summary>
-  <p class="body">체력·공격력·보물상자 보너스는 없앴다. 경험치만 나눠 갖는다: 몬스터 한 마리(8, 보스 40)와 지역 클리어(32)의 경험치를 출전 인원으로 나눈다. 공격·치유·맞아내기 1씩은 각자 받는다.</p>
-  
-</details>
-<details class="note" id="no_recruit_reward" data-status="적용">
-  <summary><span class="chip s-적용">적용</span><span class="title">E랭크 보상에서 용병 빼기</span></summary>
-  <p class="body">지역 3(킹 슬라임 승급전)을 깨고 E랭크가 되어도 용병을 주지 않는다. 동료는 용병시장에서만 영입한다.</p>
+<details class="note" id="rules" data-status="적용">
+  <summary><span class="chip s-적용">적용</span><span class="title">현재 규칙 요약</span></summary>
+  <p class="body">· 레벨업: 숙련도 1당 능력치 1개 선택 (공격력 +8% · 공격 속도 +7% · 체력 +10%), 몸에 누적, 상한 없음. 선택지 무작위 3장, 15%로 +2
+· 공격 속도: 공격 간격·기술 쿨타임 모두 ÷(1+0.07×Lv)
+· 기술: E·D랭크에 습득, 사용할수록 Lv.5까지 성장. 기본 공격(베기·방패 밀기·쏘기·마력탄·치유의 빛)도 기술, Lv.10까지 (+6%/Lv)
+· 스킬 슬롯 2칸: 넣은 기술만 사용
+· 랭크: 승급전 대상 처치로 한 단계씩 (대륙별 E·D·C 대상). 랭크당 공격 +8% · 체력 +10%
+· 재능: 공격 배율 브론즈 ×1.0 ~ 무지개 ×1.8, 랭크업 때 계열별 15%로 상승
+· 경험치: 출전 인원 분배, 뒤처진 용병 +5%/레벨 차이
+· 사거리: 1칸 = 용병 간격
+· 기절: 지면 강타 1.2~2.0초, 서리 고리 0.8~1.6초. 우두머리 ×0.6 · 중보 ×0.45 · 보스 ×0.3
+· 보상: 클리어 무기 1, 현상금 첫 사냥 무기 1 + 전액, 재사냥 절반. 충분히 가진 무기 대신 골드
+· 시장: 신병(0~5, 강화 없음) / 경력자(대륙 레벨·랭크, 성향 강화). 직업 재능 공개, 나머지 ?</p>
   
 </details>
 </section>
